@@ -11,7 +11,7 @@ function Header() {
                 <Col span={4}>
                    <h1 id="logo">
                       <Link to="/">
-                        <img src={img} alt="logo图片" className='logo'/>
+                        <img src={img} alt="logo图片" className='logo' />
                       </Link>
                    </h1>
                 </Col>
