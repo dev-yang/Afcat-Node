@@ -5,8 +5,10 @@ import LoginPage from "./login";
 import AboutPage from "./about/index";
 import GetStartPage from "./getstart";
 import CreateArticlePage from "./article/index";
+import TopicPage from "./topic/index";
 import { lazy, Suspense } from "react";
 const APIPage = lazy(()=>import("./api/index"));
+
 const router_list = [
   {
     path: "/",
@@ -45,6 +47,12 @@ const router_list = [
     exact: true,
     render(props) {
       return <CreateArticlePage {...props} />
+    }
+  }, {
+    path: "/topic",
+    exact: true,
+    render(props) {
+      return <TopicPage {...props} />
     }
   } ,{
     path: "",
