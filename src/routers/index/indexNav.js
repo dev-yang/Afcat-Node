@@ -17,7 +17,7 @@ const indexNavs = [
     to: "/?tab=job",
     title: "招聘"
   },{
-    to: "/?tab=clientTest",
+    to: "/?tab=dev",
     title: "客户端测试"
   }
 ];

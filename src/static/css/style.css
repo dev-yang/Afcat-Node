@@ -56,3 +56,36 @@ h6 {
   width: 100%;
   min-height: 80vh;
 }
+#article_title{
+  width: 98%;
+  resize: none;
+  height: 30px;
+}
+
+#article_content{
+  width: 98%;
+  resize: none;
+  height: 100px;
+}
+#tab-value{
+  margin : 0px 0px 10px;
+  padding: 4px 6px;
+
+}
+
+.put_top{
+    background: #80bd01;
+    float:right;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 3px;
+    padding: 3px 10px;
+}
+.put_end{
+    background: #801;
+    float:right;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 3px;
+    padding: 3px 10px;
+}
