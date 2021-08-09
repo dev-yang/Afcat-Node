@@ -1,4 +1,4 @@
-import { Card } from "antd";
+import { Card, Row, Col } from "antd";
 import inner from "./inner";
 /*
 代码通用：
@@ -9,21 +9,20 @@ import inner from "./inner";
     3. hooks
 */
 function ApiPage() {
-  return <div className="view"
-     style={{
-         background:"blue"
-      }}
-  >
-    <div className="wrap">
-      <Card
-        type="inner"
-        title="API"
-      >
-        <div dangerouslySetInnerHTML={{
-          __html: inner
-        }}></div>
-      </Card>
-    </div>
-  </div>
+  return <Row justify="start">
+    <Col span={18}>
+      <div className="view">
+          <Card
+            type="inner"
+            title="主页/API"
+            size="small"
+          >
+            <div dangerouslySetInnerHTML={{
+              __html: inner
+            }}></div>
+          </Card>
+      </div>
+    </Col>
+  </Row>
 }
 export default ApiPage;

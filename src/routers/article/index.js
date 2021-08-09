@@ -11,7 +11,7 @@ function CreateArticlePage(props) {
             <Card
                 title="发布话题"
             >
-                <span class="tab-selector">选择版块：</span>
+                <span className="tab-selector">选择版块：</span>
                 <select name="tab" id="tab-value" value={types} onChange={(e)=>getSelectedOption(e)}>
                     <option value="">请选择</option>
                     <option value="share">分享</option>

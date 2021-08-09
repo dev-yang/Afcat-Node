@@ -1,5 +1,5 @@
 import RootRoutes from "./routers/index";
-import { Layout } from "antd";
+import { Layout,Row,Col} from "antd";
 import "antd/dist/antd.css";
 import "./static/css/style.css";
 import Header from "./component/header";
@@ -8,11 +8,19 @@ import Header from "./component/header";
 */
 function App() {
   return <Layout>
-    <Header />
-    <Layout.Content>
+    <Header/>
+    <Layout.Content className="main">
         <RootRoutes />
-    </Layout.Content>
-    <Layout.Footer></Layout.Footer>
+    </Layout.Content >
+    {
+      /*
+        <Layout.Footer className="footer">
+      6454654
+    </Layout.Footer>
+      
+      */
+
+    }
   </Layout>;
 }
 

@@ -25,10 +25,13 @@ function IndexNav(props) {
   const {tab} = props;
   return <Nav
     data={indexNavs}
-    getSelectedKey={() => {
+    getSelectedKey={() => {   //获取选中！！
+
+      //换另外一种写法
       return indexNavs.findIndex(item => {
-        let { tab: itemTab } = qs.parse(item.to.substr(2));
-        return tab === itemTab;
+        /*let { tab: itemTab } = qs.parse(item.to.substr(2));
+        return tab === itemTab;*/
+        return '?tab='+tab ===item.to;
       })
     }}
     theme="light"

@@ -1,0 +1,31 @@
+
+.ant-layout-content .wrap{
+    background-color: #fff;
+}
+.topic_top,.topic_content{
+    padding: 12px 0;
+    margin-left: 12px;
+}
+.topic_title{
+    height: 60px;
+    line-height: 60px;
+    
+}
+.topic_list{
+    height: 30px;
+}
+.topic_list ul li{
+    float: left;
+    margin-right: 10px;
+    font-size: 10px;
+}
+.topic_list ul li:before {
+    content: "•";
+    margin-right: 5px;
+}
+.ant-comment-actions{
+    float: right;
+}
+.topic_content img{
+    width : 60%;
+}
