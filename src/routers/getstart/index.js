@@ -1,22 +1,30 @@
-import { Card } from "antd";
+import { Card, Row, Col } from "antd";
 import inner from "./inner";
+import GitLogin from '../../component/indexComponent/gitLogin';
+import Friends from '../../component/indexComponent/friends';
+
 function GetStartPage() {
-  return<div className="view"
-    style={{
-         background:"green"
-      }}
-  >
-  <div className="wrap">
-     <Card
-        type="inner"
-        title="新手入门"
-     >
-        <div dangerouslySetInnerHTML={{
-          __html:inner
-        }}></div>
-     </Card>
-  </div>
-</div>
+   return <Row span={18} justify="space-around">
+      <Col span={18}>
+         <div className="view">
+            <div>
+               <Card
+                  type="inner"
+                  title="主页/新手入门"
+                  size="small"
+               >
+                  <div dangerouslySetInnerHTML={{
+                     __html: inner
+                  }}></div>
+               </Card>
+            </div>
+         </div>
+      </Col>
+      <Col span={5}>
+         <GitLogin />
+         <Friends />
+      </Col>
+   </Row>
 }
 
 export default GetStartPage;

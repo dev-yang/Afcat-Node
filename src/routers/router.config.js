@@ -63,6 +63,9 @@ const navs = [
   },{
     to: "/login",
     title: "登录"
+  },{
+    to: "/registry",
+    title: "注册"
   }
 ];
 

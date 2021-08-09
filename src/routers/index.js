@@ -11,7 +11,7 @@ function RootRoutes(props) {
         onEnter={(node)=>{
           //  enter 系列 元素挂载时执行
             //console.log("准备开始动画");
-            console.log(node.innerHTML);
+           // console.log(node.innerHTML);
             node.style.transition = "3s opacity";
             node.style.opacity = 0;
         }}

@@ -18,3 +18,11 @@ function guards(guards={
 }
 
 export default guards;
+
+
+/**
+ * 
+ * reducer(prevState,action)
+ * prevState 是上次计算的值
+ * action是操作类型
+ */
