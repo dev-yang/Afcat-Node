@@ -1,18 +1,23 @@
-function topics(topics={
-  data:[],
-  loading:true
-},action) {
+function topics(topics = {
+  data: [],
+  loading: true
+}, action) {
   switch (action.type) {
     case "TOPICS_LOADING":
       return {
-        data:[],
-        loading:true
+        data: [],
+        loading: true
       }
     case "TOPICS_LOAD":
-        return {
-          data:action.data,
-          loading:false
-        }
+      return {
+        data: action.data,
+        loading: false
+      }
+    case "TOPICS_SAVE":
+      return {
+        data: action.data,
+        loading: false
+      }
   }
   return topics;
 }

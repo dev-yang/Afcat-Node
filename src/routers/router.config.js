@@ -4,6 +4,7 @@ import UndefinedPage from "./404/index";
 import LoginPage from "./login";
 import AboutPage from "./about/index";
 import GetStartPage from "./getstart";
+import CreateArticlePage from "./article/index";
 import { lazy, Suspense } from "react";
 import SignUpPage from "./signup";
 const APIPage = lazy(()=>import("./api/index"));
@@ -49,6 +50,12 @@ const router_list = [
       return <LoginPage {...props} />
     }
   }, {
+    path: "/topic/create",
+    exact: true,
+    render(props) {
+      return <CreateArticlePage {...props} />
+    }
+  } ,{
     path: "",
     render(props) {
       return <UndefinedPage {...props} />
