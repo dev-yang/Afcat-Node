@@ -1,7 +1,9 @@
 
 .ant-layout-content .wrap{
     background-color: #fff;
+    height:auto;
 }
+
 .topic_top,.topic_content{
     padding: 12px 0;
     margin-left: 12px;
@@ -28,4 +30,8 @@
 }
 .topic_content img{
     width : 60%;
+}
+.ant-comment .authorName{
+    font-weight: 700;
+    color: #000;
 }

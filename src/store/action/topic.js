@@ -7,7 +7,7 @@ function useLoadTopic() {
   //return async (id = '6100f54de3e67140e158fe63')=>{
     return async (id)=>{ 
     const {data} = await http.get(`/topic/${id}`);
-    console.log(data);
+   // console.log(data);
     dispatch({
       type: "TOPIC_LOAD",
       data: data.data

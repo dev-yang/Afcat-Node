@@ -6,7 +6,7 @@ import { useState } from "react";
  
 
 function AddTopicComment( ){
-    const [content,setContent] =useState("");
+    const [comment,setComment] =useState("");
      
     function addComment(){
         
@@ -22,9 +22,9 @@ function AddTopicComment( ){
                  <textarea className="comment_content" 
                  rows="6" 
                  cols="120"
-                 placeholder="评论内容"
-                 value={content}
-                 onChange={(e)=>{setContent(e.target.value)}}
+                 placeholder="回复内容"
+                 value={comment}
+                 onChange={(e)=>{setComment(e.target.value)}}
                  ></textarea>
  
                  </div>

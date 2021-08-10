@@ -1,7 +1,7 @@
 function topic(topic={
     data:[] 
   },action) {
-    console.log(action.data );
+    //console.log(action.data );
     switch (action.type) {
        case "TOPIC_LOAD":
           return {
