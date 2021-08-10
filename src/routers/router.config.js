@@ -8,6 +8,7 @@ import CreateArticlePage from "./article/index";
 import TopicPage from "./topic/index";
 import { lazy, Suspense } from "react";
 import UnRead from './unread/unread';
+import SignUpPage from "./signup";
 const APIPage = lazy(()=>import("./api/index"));
 
 
@@ -38,7 +39,15 @@ const router_list = [
     render(props) {
       return <AboutPage {...props} />
     }
-  }, {
+  },
+  {
+    path: "/signup",
+    exact: true,
+    render(props) {
+      return <SignUpPage {...props} />
+    }
+  },
+  {
     path: "/login",
     exact: true,
     render(props) {
@@ -107,10 +116,15 @@ const navs = [
   },{
     to: "/about",
     title: "关于"
-  },{
+  },
+  {
+    to: "/signup",
+    title: "注册"
+  },
+  {
     to: "/login",
     title: "登录"
-  },/*{
+  }/*,{
     to: "/registry",
     title: "注册"
   },{
