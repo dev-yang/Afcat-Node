@@ -7,8 +7,10 @@ import GetStartPage from "./getstart";
 import CreateArticlePage from "./article/index";
 import TopicPage from "./topic/index";
 import { lazy, Suspense } from "react";
+import UnRead from './unread/unread';
 import SignUpPage from "./signup";
 const APIPage = lazy(()=>import("./api/index"));
+
 
 const router_list = [
   {
@@ -59,17 +61,47 @@ const router_list = [
     }
   }, {
     path: "/topic",
-    exact: true,
+    //exact: true,
     render(props) {
       return <TopicPage {...props} />
     }
-  } ,{
+  }/* , {
+    path: "/unread",
+    exact: true,
+    render(props) {
+      return <UnRead {...props} />
+    }
+  }*/,{
     path: "",
     render(props) {
       return <UndefinedPage {...props} />
     }
   }
 ];
+
+/**
+ * , {
+    path: "/set",
+    exact: true,
+    render(props) {
+      return <UnRead {...props} />
+    }
+  }, {
+    path: "/loginout",
+    exact: true,
+    render(props) {
+      return <UnRead {...props} />
+    }
+  }
+  , {
+    path: "/registry",
+    exact: true,
+    render(props) {
+      return <UnRead {...props} />
+    }
+ * 
+ * 
+ */
 
 const navs = [
   {
@@ -92,7 +124,19 @@ const navs = [
   {
     to: "/login",
     title: "登录"
-  }
+  }/*,{
+    to: "/registry",
+    title: "注册"
+  },{
+    to: "/set",
+    title: "设置"
+  },{
+    to: "/loginout",
+    title: "退出"
+  },{
+    to: "/unread",
+    title: "未读消息"
+  }*/
 ];
 
 export { router_list,navs };

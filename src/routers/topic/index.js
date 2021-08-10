@@ -5,9 +5,12 @@ import { useLoadTopic } from "../../store/action/topic";
 import  TopicComment  from "./topicComment";
 import  AddTopicComment  from "./addTopicComment";
 import "../../static/css/topic.css"; 
+import { useLocation } from "react-router-dom";
 
 function TopicPage(props) {
-    const { id } = props;
+    //const { id } = props;
+    const id = useLocation().pathname.split('/')[2];
+   
     const {data} = useSelector(state=>state.topic);
     
     const getData = useLoadTopic();
