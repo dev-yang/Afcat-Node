@@ -29,20 +29,20 @@ function IndexList(props) {
     dataSource={data}
     renderItem={item => {
       return <List.Item>
-         <Link to="/">
-              <img src={item.author.avatar_url} className="author_img"/>
+            <div>
+             <Link to="/"><img src={item.author.avatar_url} className="author_img"/></Link>
               <span class="commentCount"><em style={{ color:'#9e78c0'}}>{item.reply_count}</em>/<em>{item.visit_count}</em></span>
               <span className={item.top?'top':(item.good?'good':item.tab)}>
                   {
                     item.top?"置顶":(item.good?'精华':tabNode(item.tab))
                   }
               </span>
-              &nbsp;&nbsp;&nbsp;{item.title}&nbsp;&nbsp;&nbsp;
+              <Link to={'/topic/'+item.id}>&nbsp;&nbsp;&nbsp;{item.title}&nbsp;&nbsp;&nbsp;</Link>
               {item.top ?
                 <span class="put_top" onClick={() => { cancelTop(item.id) }}>取消置顶</span> :
                 <span class="put_end" onClick={() => { top(item.id) }}>置顶</span>
               }
-          </Link>
+          </div>
       </List.Item>
     }}
   />
