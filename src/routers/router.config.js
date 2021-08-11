@@ -6,6 +6,7 @@ import AboutPage from "./about/index";
 import GetStartPage from "./getstart";
 import CreateArticlePage from "./article/index";
 import TopicPage from "./topic/index";
+import UserPage from "./user/index"
 import { lazy, Suspense } from "react";
 import UnRead from './unread/unread';
 import SignUpPage from "./signup";
@@ -71,7 +72,14 @@ const router_list = [
     render(props) {
       return <UnRead {...props} />
     }
-  }*/,{
+  }*/
+  , {
+    path: "/user",
+    exact: true,
+    render(props) {
+      return <UserPage {...props} />
+    }
+  },{
     path: "",
     render(props) {
       return <UndefinedPage {...props} />
