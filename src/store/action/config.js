@@ -9,4 +9,8 @@ const http1 = axios.create({
   baseURL:" http://39.99.151.246/api/article"
 });
 
-export {http,http1};
+const signHttp = axios.create({
+  baseURL:"http://39.99.151.246"
+});
+
+export {http, signHttp,http1}

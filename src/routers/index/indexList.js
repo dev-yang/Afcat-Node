@@ -38,7 +38,7 @@ function IndexList(props) {
     renderItem={item => {
       return <List.Item>
             <div>
-             <Link to="/"><img src={item.avatar} className="author_img"/></Link>
+             <Link to={'/user/'+item.userId}><img src={item.avatar} className="author_img"/></Link>
               <span class="commentCount"><em style={{ color:'#9e78c0'}}>{item.replyCount}</em><em style={{fontSize:"12px"}}>{item.viewCount}</em></span>
               <span className={item.isTop==1?'top':tabClassNode(item.categoryId)}>
                 {/*(item.categoryId?'good':item.tab)*/}
@@ -48,7 +48,7 @@ function IndexList(props) {
                   }
               </span>
               <Link to={'/topic/'+item.id}>&nbsp;&nbsp;&nbsp;{item.title}&nbsp;&nbsp;&nbsp;</Link>
-              {item.top ?
+              {item.isTop ?
                 <span className="put_top" onClick={() => { cancelTop(item.id) }}>取消置顶</span> :
                 <span className="put_end" onClick={() => { top(item.id) }}>置顶</span>
               }
@@ -62,7 +62,7 @@ function IndexList(props) {
     const endData = [];//非置顶data
     data.map((item, index) => {
       if (item.id == id) {
-        item.top = false;
+        item.isTop = 0;
         endData.push(item);
       } else {
         item.top ? topData.push(item) :
@@ -82,7 +82,8 @@ function IndexList(props) {
     const endData = [];//非置顶data
     data.map((item, index) => {
       if (item.id == id) {
-        item.top = true;
+        //item.top = true;
+        item.isTop = 1;
         topData.push(item);
       } else {
         item.top ? topData.push(item) :

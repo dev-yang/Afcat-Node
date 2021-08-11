@@ -6,6 +6,7 @@ import AboutPage from "./about/index";
 import GetStartPage from "./getstart";
 import CreateArticlePage from "./article/index";
 import TopicPage from "./topic/index";
+import UserPage from "./user/index"
 import { lazy, Suspense } from "react";
 import UnRead from './unread/unread';
 import SignUpPage from "./signup";
@@ -65,13 +66,31 @@ const router_list = [
     render(props) {
       return <TopicPage {...props} />
     }
-  }/* , {
+  }, {
     path: "/unread",
     exact: true,
     render(props) {
       return <UnRead {...props} />
     }
-  }*/,{
+  }
+  , {
+    path: "/user",
+    exact: true,
+    render(props) {
+      return <UserPage {...props} />
+    }
+  }, {
+    path: "/loginout",
+    exact: true,
+    render(props) {
+      //清空store数据
+      // dispatch({
+      //   type: "GUARDS_LOGINOUT",
+      //   user: ''
+      // })
+      return <IndexPage {...props} /> 
+    }
+  },{
     path: "",
     render(props) {
       return <UndefinedPage {...props} />
@@ -138,5 +157,29 @@ const navs = [
     title: "未读消息"
   }*/
 ];
+const loginNav = [
+  {
+    to: "/",
+    title: "首页"
+  },{
+    to: "/getstart",
+    title: "新手入门"
+  },{
+    to: "/api",
+    title: "API"
+  },{
+    to: "/about",
+    title: "关于"
+  },{
+    to: "/set",
+    title: "设置"
+  },{
+    to: "/unread",
+    title: "未读消息"
+  },{
+    to: "/loginout",
+    title: "退出"
+  }
+];
 
-export { router_list,navs };
+export { router_list,navs ,loginNav};

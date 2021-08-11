@@ -1,10 +1,15 @@
 import {Affix, Col, Layout, Row} from "antd"
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Nav from "./nav";
-import { navs } from "../routers/router.config";
+import { navs,loginNav } from "../routers/router.config";
 import img from '../static/image/cnodejs_light.svg';
 
+
 function Header() {
+  const { isLogin, prevPath } = useSelector(state => state.guards);
+  console.log(isLogin)
+    //const {isLogin} =
     return <Affix offsetTop={0} className="header">
         <Layout.Header style={{height:"40px"}}>
             <Row className="wrap">
@@ -18,7 +23,7 @@ function Header() {
                 </Col>
                 <Col span={16}>
                     <Nav 
-                      data={navs}
+                      data={isLogin?loginNav:navs}
                       style={{
                         float:"right"
                       }}
