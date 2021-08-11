@@ -10,6 +10,8 @@ import UserPage from "./user/index"
 import { lazy, Suspense } from "react";
 import UnRead from './unread/unread';
 import SignUpPage from "./signup";
+import SettingPage from "./setting";
+import SignOutPage from "./signout";
 const APIPage = lazy(()=>import("./api/index"));
 
 
@@ -66,13 +68,21 @@ const router_list = [
     render(props) {
       return <TopicPage {...props} />
     }
-  }/* , {
-    path: "/unread",
+  },
+  {
+    path:"/setting",
     exact: true,
     render(props) {
-      return <UnRead {...props} />
+      return <SettingPage />
     }
-  }*/
+  },
+  {
+    path:"/signout",
+    exact: true,
+    render(props) {
+      return <SignOutPage />
+    }
+  }
   , {
     path: "/user",
     exact: true,
@@ -87,29 +97,6 @@ const router_list = [
   }
 ];
 
-/**
- * , {
-    path: "/set",
-    exact: true,
-    render(props) {
-      return <UnRead {...props} />
-    }
-  }, {
-    path: "/loginout",
-    exact: true,
-    render(props) {
-      return <UnRead {...props} />
-    }
-  }
-  , {
-    path: "/registry",
-    exact: true,
-    render(props) {
-      return <UnRead {...props} />
-    }
- * 
- * 
- */
 
 const navs = [
   {
@@ -132,19 +119,31 @@ const navs = [
   {
     to: "/login",
     title: "登录"
-  }/*,{
-    to: "/registry",
-    title: "注册"
-  },{
-    to: "/set",
-    title: "设置"
-  },{
-    to: "/loginout",
-    title: "退出"
-  },{
-    to: "/unread",
-    title: "未读消息"
-  }*/
+  }
 ];
 
-export { router_list,navs };
+const loginNavs = [
+  {
+    to: "/",
+    title: "首页"
+  },{
+    to: "/getstart",
+    title: "新手入门"
+  },{
+    to: "/api",
+    title: "API"
+  },{
+    to: "/about",
+    title: "关于"
+  },
+  {
+    to: "/setting",
+    title: "设置"
+  },
+  {
+    to: "/signout",
+    title: "退出"
+  }
+];
+
+export { router_list, navs, loginNavs };

@@ -5,6 +5,7 @@ function Nav(props) {
   const location = useLocation();
   const selectedKey = getSelectedKey(location);
   console.log(data);
+
   return <Menu
     mode="horizontal"
     theme={theme}
