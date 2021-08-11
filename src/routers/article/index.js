@@ -2,7 +2,7 @@ import { Button, Card } from "antd";
 import { useState } from "react";
 import {Link,useHistory} from "react-router-dom";
 function CreateArticlePage(props) {
-    const [types,setTypes] =useState("");
+    const [types='all',setTypes] =useState("");
     const [title,setTitle] =useState("");
     const [content,setContent] =useState("");
     const {push} = useHistory();

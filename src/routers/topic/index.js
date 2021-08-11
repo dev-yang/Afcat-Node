@@ -31,12 +31,7 @@ function TopicPage(props) {
         <TopComment
               data = { data }
         />
-        <TopicComment 
-              data = { data }
-        />
         <AddTopicComment />
-
-        
     </div>
 
 

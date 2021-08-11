@@ -2,13 +2,19 @@ function guards(guards={
     isLogin:false,
     prevPath:""
 },action) {
-  debugger;
+  //debugger;
     switch (action.type) {
       case "GUARDS_LOGIN":
         return {
           isLogin:true,
           prevPath:guards.prevPath,
           user: action.user
+        }
+      case "GUARDS_LOGINOUT":
+        return {
+          isLogin:false,
+          prevPath:'',
+          user: ''
         }
       case "GUARDS_PATH":
         return {

@@ -1,7 +1,9 @@
 import { Button, Form, Input, Modal } from "antd";
 import axios from "axios";
 import "../../static/css/signup.css"
-import {signHttp} from "../../store/action/config"
+import {signHttp} from "../../store/action/config";
+//import {history} from 'history/history';
+
 function SignUpPage() {
     const onFinish = (values) => {
         
@@ -23,6 +25,8 @@ function SignUpPage() {
                     content: '恭喜您，注册成功~',
                 });
                 let userid = reply.results.id;
+                //history.push('/');
+                //此处分发状态，header显示设置以及首页右侧显示用户信息  
             }
           })
           .catch(function (error) {

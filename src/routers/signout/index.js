@@ -7,7 +7,7 @@ function SignOutPage() {
     const { replace } = useHistory();
     useEffect(() => {
         dispatch({
-            type: "GUARDS_PATH",
+            type: "GUARDS_LOGINOUT",
         })
         replace(prevPath ? prevPath : "/");
     }, [])

@@ -82,6 +82,13 @@ const router_list = [
     render(props) {
       return <SignOutPage />
     }
+  },
+  {
+    path:"/unread",
+    exact: true,
+    render(props) {
+      return <UnRead />
+    }
   }
   , {
     path: "/user",
@@ -141,9 +148,14 @@ const loginNavs = [
     title: "设置"
   },
   {
+    to: "/unread",
+    title: "未读消息"
+  },
+  {
     to: "/signout",
     title: "退出"
   }
 ];
 
 export { router_list, navs, loginNavs };
+

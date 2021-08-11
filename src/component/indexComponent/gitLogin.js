@@ -1,5 +1,6 @@
 import { Button, Card } from 'antd';
 import { useSelector } from 'react-redux';
+import {Link} from 'react-router-dom';
 import Profile from './profile';
 
 export default function GitLogin(){
@@ -9,7 +10,7 @@ export default function GitLogin(){
         <div>
             <Profile />
             <Card style={{marginTop:10}} size="small">
-                <Button type="primary">发布话题</Button>
+                <Link to={'/topic/create'}><Button type="primary">发布话题</Button></Link>
             </Card>
         </div>
         )
