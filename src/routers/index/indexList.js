@@ -6,12 +6,20 @@ import { Link } from "react-router-dom";
 
 function tabNode(tab){
   switch(tab){
-      case 'share':return '分享';
-      case 'ask':return '问答';
-      case 'job':return '';
-      case 'dev':return '';
+      case 1:return '问答';
+      case 2:return '招聘';
+      case 3:return '分享';
+      //case 4:return '';
   }
 }
+function tabClassNode(tab){
+  switch(tab){
+    case 1:return 'ask';
+    case 2:return 'ask';
+    case 3:return 'share';
+    //case 4:return '';
+  }
+} 
 
 function IndexList(props) {
   const { tab, page } = props;
@@ -30,17 +38,19 @@ function IndexList(props) {
     renderItem={item => {
       return <List.Item>
             <div>
-             <Link to="/"><img src={item.author.avatar_url} className="author_img"/></Link>
-              <span class="commentCount"><em style={{ color:'#9e78c0'}}>{item.reply_count}</em>/<em>{item.visit_count}</em></span>
-              <span className={item.top?'top':(item.good?'good':item.tab)}>
+             <Link to="/"><img src={item.avatar} className="author_img"/></Link>
+              <span class="commentCount"><em style={{ color:'#9e78c0'}}>{item.replyCount}</em><em style={{fontSize:"12px"}}>{item.viewCount}</em></span>
+              <span className={item.isTop==1?'top':tabClassNode(item.categoryId)}>
+                {/*(item.categoryId?'good':item.tab)*/}
                   {
-                    item.top?"置顶":(item.good?'精华':tabNode(item.tab))
+                    /*item.top?"置顶":(item.good?'精华':tabNode(item.tab))*/
+                    item.isTop==1?"置顶":tabNode(item.categoryId)
                   }
               </span>
               <Link to={'/topic/'+item.id}>&nbsp;&nbsp;&nbsp;{item.title}&nbsp;&nbsp;&nbsp;</Link>
               {item.top ?
-                <span class="put_top" onClick={() => { cancelTop(item.id) }}>取消置顶</span> :
-                <span class="put_end" onClick={() => { top(item.id) }}>置顶</span>
+                <span className="put_top" onClick={() => { cancelTop(item.id) }}>取消置顶</span> :
+                <span className="put_end" onClick={() => { top(item.id) }}>置顶</span>
               }
           </div>
       </List.Item>

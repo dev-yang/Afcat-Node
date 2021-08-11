@@ -4,22 +4,22 @@ const indexNavs = [
   {
     to: "/?tab=all",
     title: "全部"
-  }, {
-    to: "/?tab=good",
+  }/*, {
+    to: "/?tab=all",
     title: "精华"
-  }, {
-    to: "/?tab=share",
+  }*/, {
+    to: "/?tab=3",
     title: "分享"
   }, {
-    to: "/?tab=ask",
+    to: "/?tab=1",
     title: "问答"
   },{
-    to: "/?tab=job",
+    to: "/?tab=2",
     title: "招聘"
-  },{
-    to: "/?tab=dev",
+  }/*,{
+    to: "/?tab=all",
     title: "客户端测试"
-  }
+  }*/
 ];
 function IndexNav(props) {
   const {tab} = props;

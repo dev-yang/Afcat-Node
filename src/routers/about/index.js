@@ -18,9 +18,9 @@ function AboutPage() {
           __html: inner
         }}></div>
       </Card>
-      <button onClick={()=>{
+      {/*<button onClick={()=>{
         setShowPopup(true);
-      }}>弹窗</button>
+      }}>弹窗</button>*/}
       {
         showPopup? <Popup 
           render={(clos)=>{

@@ -17,7 +17,7 @@ function TopicPage(props) {
     useEffect(() => {
         getData(id);
     }, [id])
-    console.log(data);
+    //console.log(data)
     const content_inner = data.content ;
     //const author = data.author;
    
@@ -30,7 +30,7 @@ function TopicPage(props) {
                  <div className="topic_list">
                      <ul>
                          <li>发布于 {data.create_at}</li>
-                         {/* <li>作者 {data.author.loginname}</li> */}
+                         <li>作者{/*data['author']['loginname']*/}</li>
                          <li>{data.visit_count} 次浏览</li>
                          <li>来自{data.tab}</li>
                      </ul>
@@ -45,12 +45,13 @@ function TopicPage(props) {
              >
                 
              </div>
-        </div>
-
-        <TopicComment 
+             <TopicComment 
             value = {data.replies}
         />
         <AddTopicComment />
+        </div>
+
+        
 
         
     </div>
