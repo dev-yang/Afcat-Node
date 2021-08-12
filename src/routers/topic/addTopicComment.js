@@ -1,16 +1,35 @@
 import ReactDom from 'react-dom';
-import { Card  } from "antd";
-import { Button } from 'antd';
+import { Card,Button  } from "antd";
 import { useState } from "react";
 //import E from "wangeditor";
- 
+import { useDispatch, useSelector } from "react-redux";
+import { signHttp } from "../../store/action/config"; 
 
-function AddTopicComment( ){
-    const [comment,setComment] =useState("");
-     
-    function addComment(){
-        
-        
+function AddTopicComment(props){
+    const dispatch = useDispatch();
+    const { data } = props;
+    const [content,setContent] =useState("");
+    const id = data.id; 
+    const { isLogin } = useSelector(state=>state.guards);
+    const addComment = () => {
+        signHttp.post('/api/reply', 
+           { 'articleId':id, 'content':content },
+           { headers: {'token':''}})
+          .then(function (res) {
+            console.log(res.data)
+            //if (code === 0) {
+            //   dispatch({
+            //     type: "TOPIC_REPLIES"
+            //   })
+            //} 
+
+          })
+          .catch(function (error) {
+             
+          });
+      }
+    if(!isLogin){
+        return <div></div>;
     }
     return (
         <div className="wrap">
@@ -23,8 +42,8 @@ function AddTopicComment( ){
                  rows="6" 
                  cols="120"
                  placeholder="回复内容"
-                 value={comment}
-                 onChange={(e)=>{setComment(e.target.value)}}
+                 value={content}
+                 onChange={(e)=>{setContent(e.target.value)}}
                  ></textarea>
  
                  </div>
@@ -35,6 +54,7 @@ function AddTopicComment( ){
             </Card>
        </div>
     )
+    
 }
 export default AddTopicComment;
 

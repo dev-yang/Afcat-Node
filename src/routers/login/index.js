@@ -23,7 +23,7 @@ function LoginPage() {
         const code = reply.code;
         if (code === 0) {
           message.info('登录成功~');
-          console.log(response.data);
+          console.log(response);
           let userid = reply.results.id;
           let avatar = reply.results.avatar;
           dispatch({

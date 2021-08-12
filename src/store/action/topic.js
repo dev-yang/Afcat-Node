@@ -1,16 +1,15 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { http } from "./config";
-// hooks 放在组件最外层，数据请求，要放在副作用中
+import { http,signHttp } from "./config";
 function useLoadTopic() { 
   const dispatch = useDispatch();
   //return async (id = '6100f54de3e67140e158fe63')=>{
     return async (id)=>{ 
-    const {data} = await http.get(`/topic/${id}`);
-   // console.log(data);
+    const {data} = await signHttp.get(`/api/article/${id}`);
+    //console.log(data);
     dispatch({
       type: "TOPIC_LOAD",
-      data: data.data
+      data: data.results
     })
   }
 }

@@ -19,8 +19,7 @@ function RootRoutes(props) {
           node.style.transition = "none";
         }}
         onExit={(node)=>{
-          console.log(node.innerHTML);
-          node.style.transition = "0.5s opacity";
+           node.style.transition = "0.5s opacity";
         }}
         onExiting={(node)=>{
           node.style.opacity = 0;

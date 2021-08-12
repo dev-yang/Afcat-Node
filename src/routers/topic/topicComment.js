@@ -1,17 +1,30 @@
 import { Card, Divider, List, Switch } from "antd";
-import React, { createElement, useState } from 'react';
 import { Comment, Tooltip, Avatar } from 'antd';
 import moment from 'moment';
+import { useState,useEffect } from "react";
+//import React, { createElement, useState,useEffect } from 'react';
+import { useSelector } from "react-redux";
+import { useGetReplys } from "../../store/action/getReplys";
 //import { DislikeOutlined, LikeOutlined, DislikeFilled, LikeFilled } from '@ant-design/icons';
  
 function TopicComment(props) {
-  const { data } = props;
+  //const { data } = props;
+  const id ="1003";
+  const getReplys = useGetReplys();
+  const { data } = useSelector(state=>state.replies);
+  useEffect(() => {
+    getReplys(id);
+  }, [id]) 
+  
+  if (!data.replies) {
+     return <div>暂无回复</div>;
+       
+  } 
   const replies = data.replies;
-  console.log(replies);
-  if (!replies) {
-    return <div>暂无回复</div>
+  if(replies.length == 0){
+     return <div></div>;
   }
-    
+  
   return (
     <div className="wrap">
       <Card
@@ -21,29 +34,28 @@ function TopicComment(props) {
 
         {replies.map((item, index) => {
           return <Comment
-              author={<a className="authorName">{item.author.loginname}</a>}
+              key ={index}
+              author={<a className="authorName">{item.username}</a>}
               avatar={
                 <Avatar
-                  src={item.author.avatar_url}
-                  alt={item.author.loginname}
+                  src={item.avatar}
+                  alt={item.avatar}
                 />
               }
-              content={  
-                  
-                 <div className="topic_content"
+              content={  item.content  }
+              datetime={
+                <Tooltip title={moment( item.createdAt).format('YYYY-MM-DD HH:mm:ss')}>
+                  <span>{moment(item.createdAt ).fromNow()}</span>
+                </Tooltip>
+              }
+          />
+          {/* <div className="topic_content"
                       dangerouslySetInnerHTML={{
                           __html: item.content 
                       }}
                   >
 
-                  </div>
-              }
-              datetime={
-                <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
-                  <span>{moment().fromNow()}</span>
-                </Tooltip>
-              }
-          />
+                  </div> */}
         })}
 
       </Card>
