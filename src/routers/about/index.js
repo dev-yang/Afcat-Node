@@ -17,7 +17,7 @@ function AboutPage() {
         <div dangerouslySetInnerHTML={{
           __html: inner
         }}></div>
-      </Card>
+      </Card> 
   </div>
   </Col>
   <Col span={5}>

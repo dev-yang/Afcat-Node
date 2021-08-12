@@ -3,8 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 function Nav(props) {
   const {theme="light",getSelectedKey=(()=>{}),data,...restProps} = props;
   const location = useLocation();
-  const selectedKey = getSelectedKey(location);
-  //console.log(data);
+  const selectedKey = getSelectedKey(location); 
   return <Menu
     mode="horizontal"
     theme={theme}

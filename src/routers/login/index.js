@@ -27,7 +27,8 @@ function LoginPage() {
           let userid = reply.results.id;
           let avatar = reply.results.avatar;
           dispatch({
-            type: "GUARDS_LOGIN"
+            type: "GUARDS_LOGIN",
+            user: reply.results
           })
           // let userid = reply.results.id;
         } else {
