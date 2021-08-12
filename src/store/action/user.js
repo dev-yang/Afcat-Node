@@ -20,6 +20,7 @@ function useLoadUserArticles() {
   return async () => {
     //const { data } = await signHttp.get(`/api/user/articles?userId=${user.userId}`);
     const { data } = await signHttp.get(`/user/articles?userId=${user.userId}`);
+    console.log("个人发布的文章：" + data);
     dispatch({
       type: "USER_ARTICLES",
       data: data.results
@@ -31,7 +32,8 @@ function useLoadUserReplies() {
   const { user = {} } = useSelector((state) => state.guards);
   const dispatch = useDispatch();
   return async () => {
-    const { data } = await signHttp.get(`/api/user/replies?userId=${user.userId}`);
+    const { data } = await signHttp.get(`/user/replies?userId=${user.userId}`);
+    console.log("个人回复：" + data);
     dispatch({
       type: "USER_REPLIES",
       data: data.results
