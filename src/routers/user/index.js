@@ -14,7 +14,7 @@ import "../../static/css/user.css";
 function UserPage() {
   const { replace } = useHistory();
   // const { profile={}, articles=[], replies=[] } = useSelector((state) => state.user);
-  const {  articles=[], replies=[] } = useSelector((state) => state.user);
+  const {  articles, replies} = useSelector((state) => state.user);
   //   const getUserProfile = useLoadUserProfile();
   const getUserArticles = useLoadUserArticles();
   const getUserReplies = useLoadUserReplies();
@@ -35,7 +35,7 @@ function UserPage() {
           <Profile title={<a href="javascript:;" onClick={()=>replace('/')}>主页/</a>} />
           <div className="user_card">
             <Card type="inner" title="最近创建的话题">
-                {articles?articles.map((item) => {
+                {articles&&articles.length>0?articles.map((item) => {
                 return (
                     <div>
                     <Avatar src={item.avatar} />
