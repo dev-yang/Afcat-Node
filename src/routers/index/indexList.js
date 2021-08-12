@@ -1,9 +1,10 @@
-import { List, Switch } from "antd";
+import { List, message , Switch } from "antd";
 import { useEffect } from "react";
 import { useSelector,useDispatch } from "react-redux";
 import { useLoadTopics } from "../../store/action/topics";
-import { Link } from "react-router-dom";
-
+import { Link,useLocation } from "react-router-dom";
+import { http1,indexNavHttp } from "../../store/action/config";
+import qs from "qs";
 function tabNode(tab){
   switch(tab){
       case 1:return '问答';
@@ -25,8 +26,8 @@ function IndexList(props) {
   const { tab, page } = props;
   const { loading, data } = useSelector(state => state.topics);
   const getData = useLoadTopics();
-  const dispatch = useDispatch();
-
+  //const dispatch = useDispatch();
+  const { search } = useLocation();
   useEffect(() => {
     getData(page, tab)
   }, [tab, page])
@@ -48,15 +49,17 @@ function IndexList(props) {
                   }
               </span>
               <Link to={'/topic/'+item.id}>&nbsp;&nbsp;&nbsp;{item.title}&nbsp;&nbsp;&nbsp;</Link>
-              {item.isTop ?
-                <span className="put_top" onClick={() => { cancelTop(item.id) }}>取消置顶</span> :
-                <span className="put_end" onClick={() => { top(item.id) }}>置顶</span>
+              {item.isTop==1 ?
+                <span className="put_top" onClick={() => { isTop(item.id,0) }}>取消置顶</span> :
+                <span className="put_end" onClick={() => { isTop(item.id,1) }}>置顶</span>
+                
               }
           </div>
       </List.Item>
     }}
   />
-  function cancelTop(id) {
+  /**
+   * function cancelTop(id) {
     //获取当前页面的data，然后重新排序
     const topData = [];//置顶data
     const endData = [];//非置顶data
@@ -76,7 +79,11 @@ function IndexList(props) {
       data: lastData
     })
   }
-  function top(id) {
+   * 
+   */
+  
+  /**
+   * function top(id) {
     //获取当前页面的data，然后重新排序
     const topData = [];//置顶data
     const endData = [];//非置顶data
@@ -98,6 +105,28 @@ function IndexList(props) {
       data: lastData
     })
   }
+   * 
+   */
+  
+  
+  function isTop(id,isTop) {
+   
+    http1.patch(`/${id}/top`, [isTop=isTop] )
+      .then(function (response) {
+        const reply = response.data;
+        const code = reply.code;
+        if (code === 0) {
+          //成功请求
+          const { tab } = qs.parse(search.slice(1));
+          indexNavHttp.get(`/?tab=${tab}`)
+        }
+      })
+      .catch(function (error) {
+        message.error('置顶错误！');
+      });
+
+  }
+  
 }
 
 export default IndexList;

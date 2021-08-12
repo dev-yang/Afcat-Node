@@ -18,6 +18,8 @@ const http1 = axios.create({
 const signHttp = axios.create({
   baseURL:"/api"
 });
+const indexNavHttp = axios.create({
+  baseURL:"/"
+});
 
-
-export {http, signHttp,http1}
+export {http, signHttp,http1,indexNavHttp}
