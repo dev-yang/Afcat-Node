@@ -1,5 +1,5 @@
 
-.ant-layout-content .wrap{
+.ant-layout-content .topComment{
     background-color: #fff;
     height:auto;
 }
@@ -12,6 +12,9 @@
     height: 60px;
     line-height: 60px;
     
+}
+.topic_content{
+    padding: 20px;
 }
 .topic_title .top {   
     margin-right: 10px;
@@ -38,4 +41,11 @@
 .ant-comment .authorName{
     font-weight: 700;
     color: #000;
+}
+
+.getMoreComment{
+    border: none;
+    background: none;
+    color: #b5afaf;
+    cursor: pointer;
 }

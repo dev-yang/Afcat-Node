@@ -6,17 +6,16 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {
 //   useLoadUserProfile,
-  useLoadUserArticles,
-  useLoadUserReplies,
-} from "../../store/action/user";
+  useLoadUserArticles,useLoadUserReplies,} from "../../store/action/user";
 import Profile from "../../component/indexComponent/profile";
 
 import "../../static/css/user.css";
 
 function UserPage() {
   const { replace } = useHistory();
-  const { profile={}, articles=[], replies=[] } = useSelector((state) => state.user);
-//   const getUserProfile = useLoadUserProfile();
+  // const { profile={}, articles=[], replies=[] } = useSelector((state) => state.user);
+  const {  articles=[], replies=[] } = useSelector((state) => state.user);
+  //   const getUserProfile = useLoadUserProfile();
   const getUserArticles = useLoadUserArticles();
   const getUserReplies = useLoadUserReplies();
 //   useEffect(() => {

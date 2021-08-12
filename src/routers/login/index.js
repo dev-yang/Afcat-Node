@@ -17,15 +17,18 @@ function LoginPage() {
   }, [isLogin])
 
   const onFinish = (values) => {
-    signHttp.post('/api/auth/login', { ...values })
+    // signHttp.post('/api/auth/login', { ...values })
+    signHttp.post('/auth/login', { ...values })
       .then(function (response) {
         const reply = response.data;
         const code = reply.code;
         if (code === 0) {
           message.info('登录成功~');
-          console.log(response);
+          let authorization = response.headers.authorization
           let userid = reply.results.id;
           let avatar = reply.results.avatar;
+          reply.results.authorization = authorization;
+
           dispatch({
             type: "GUARDS_LOGIN",
             user: reply.results

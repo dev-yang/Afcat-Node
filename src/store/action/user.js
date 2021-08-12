@@ -5,7 +5,8 @@ function useLoadUserProfile() {
   const { user = {} } = useSelector((state) => state.guards);
   const dispatch = useDispatch();
   return async () => {
-    const { data } = await signHttp.get(`/api/user/profile?type=0&value=${user.userId}`);
+    //const { data } = await signHttp.get(`/api/user/profile?type=0&value=${user.userId}`);
+    const { data } = await signHttp.get(`/user/profile?type=0&value=${user.userId}`);
     dispatch({
       type: "USER_PROFILE",
       data: data.results
@@ -17,7 +18,8 @@ function useLoadUserArticles() {
   const { user = {} } = useSelector((state) => state.guards);
   const dispatch = useDispatch();
   return async () => {
-    const { data } = await signHttp.get(`/api/user/articles?userId=${user.userId}`);
+    //const { data } = await signHttp.get(`/api/user/articles?userId=${user.userId}`);
+    const { data } = await signHttp.get(`/user/articles?userId=${user.userId}`);
     dispatch({
       type: "USER_ARTICLES",
       data: data.results

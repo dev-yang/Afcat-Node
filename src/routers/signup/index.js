@@ -16,7 +16,8 @@ function SignUpPage() {
             return;
         }
 
-        signHttp.post('/api/auth/register', {...values})
+        // signHttp.post('/api/auth/register', {...values})
+        signHttp.post('/auth/register', {...values})
           .then(function (response) {
             const reply = response.data;
             const code = reply.code;

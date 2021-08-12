@@ -2,14 +2,14 @@ import { Card, Divider, List, Switch } from "antd";
 import { Comment, Tooltip, Avatar } from 'antd';
 import moment from 'moment';
 import { useState,useEffect } from "react";
-//import React, { createElement, useState,useEffect } from 'react';
 import { useSelector } from "react-redux";
 import { useGetReplys } from "../../store/action/getReplys";
 //import { DislikeOutlined, LikeOutlined, DislikeFilled, LikeFilled } from '@ant-design/icons';
+import { useLocation } from "react-router-dom"; 
  
+
 function TopicComment(props) {
-  //const { data } = props;
-  const id ="1003";
+  const id = useLocation().pathname.split('/')[2];
   const getReplys = useGetReplys();
   const { data } = useSelector(state=>state.replies);
   useEffect(() => {
@@ -17,22 +17,27 @@ function TopicComment(props) {
   }, [id]) 
   
   if (!data.replies) {
-     return <div>暂无回复</div>;
+     return <div></div>;
        
   } 
+  
   const replies = data.replies;
   if(replies.length == 0){
      return <div></div>;
   }
   
-  return (
-    <div className="wrap">
-      <Card
+   
+  let count = data.count;
+  const  getMoreComment=(count) => {
+      getReplys(id,1,count);
+   }
+
+  return ( <Card
         type="inner"
         title="回复"
       >
 
-        {replies.map((item, index) => {
+        {data.replies.map((item, index) => {
           return <Comment
               key ={index}
               author={<a className="authorName">{item.username}</a>}
@@ -49,17 +54,11 @@ function TopicComment(props) {
                 </Tooltip>
               }
           />
-          {/* <div className="topic_content"
-                      dangerouslySetInnerHTML={{
-                          __html: item.content 
-                      }}
-                  >
-
-                  </div> */}
+           
         })}
-
+        {count > 5?<button className="getMoreComment" onClick={() => { getMoreComment(count); }}>查看更多>>></button>:"" } 
       </Card>
-    </div>
+     
   );
 }
 export default TopicComment;

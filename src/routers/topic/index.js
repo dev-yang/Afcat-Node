@@ -1,17 +1,18 @@
-import { Card,Divider  } from "antd";
-import { useState,useEffect } from "react";
+import { Row, Col, Card, Divider } from "antd";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLoadTopic } from "../../store/action/topic";
-import  TopicComment  from "./topicComment";
-import  TopComment from "./topComment";
-import  AddTopicComment  from "./addTopicComment";
-import "../../static/css/topic.css"; 
 import { useLocation } from "react-router-dom";
+import TopicComment from "./topicComment";
+import TopComment from "./topComment";
+import AddTopicComment from "./addTopicComment";
+import GitLogin from '../../component/indexComponent/gitLogin';
+import "../../static/css/topic.css";
+
 
 function TopicPage(props) {
-    const id = '1003';
-    //const id = useLocation().pathname.split('/')[2];
-    const {data} = useSelector(state=>state.topic);
+    const id = useLocation().pathname.split('/')[2];
+    const { data } = useSelector(state => state.topic);
     const getData = useLoadTopic();
     useEffect(() => {
         getData(id);
@@ -20,25 +21,33 @@ function TopicPage(props) {
         return <div>暂无数据</div>
     }
 
-    
-     
-    return <div className="view">
-        <TopComment
-              data = { data }
-        />
-        <TopicComment 
-              data = { data }
-        />
-        {/* 判断用户是否登录 */}
-        <AddTopicComment
-              data = { data }
-         />
+    return <Row span={18} justify="space-around">
+        <Col span={18}>
+            <div className="view">
+                <div>
+ 
+                    <TopComment
+                        data={data}
+                    />
+                    <TopicComment
+                        data={data}
+                    />
 
-        
-    </div>
+                    <AddTopicComment
+                        data={data}
+                    />
+                </div>
+
+            </div>
+             
+        </Col>
+        <Col span={5}>
+            <GitLogin />
+        </Col>
+    </Row>
 
 
-    
+
 }
 export default TopicPage;
 
