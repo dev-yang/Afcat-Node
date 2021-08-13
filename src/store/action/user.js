@@ -6,7 +6,6 @@ function useLoadUserProfile() {
   const dispatch = useDispatch();
   
   return async () => {
-    //const { data } = await signHttp.get(`/api/user/profile?type=0&value=${user.userId}`);
     const { data } = await signHttp.get(`/user/profile?type=0&value=${user.id}`);
     dispatch({
       type: "USER_PROFILE",
@@ -19,7 +18,6 @@ function useLoadUserArticles() {
   const { user = {} } = useSelector((state) => state.guards);
   const dispatch = useDispatch();
   return async () => {
-    //const { data } = await signHttp.get(`/api/user/articles?userId=${user.userId}`);
     const { data } = await signHttp.get(`/user/articles?userId=${user.id}`);
     //console.log("个人发布的文章：" + data);
     dispatch({

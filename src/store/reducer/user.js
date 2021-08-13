@@ -4,7 +4,7 @@ function user(user = {
   replies: []
 }, action) {
   switch (action.type) {
-    case "USER":
+    case "USER_PROFILE":
       return {
         profile: action.data||{},
       };
