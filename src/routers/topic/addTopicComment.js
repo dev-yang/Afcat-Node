@@ -1,15 +1,13 @@
-import ReactDom from 'react-dom';
 import { Card, Button } from "antd";
 import { useState } from "react";
 //import E from "wangeditor";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { signHttp } from "../../store/action/config";
 import { useGetReplys } from "../../store/action/getReplys";
 import { useLocation } from "react-router-dom"; 
 function AddTopicComment(props) {
     const commentid = useLocation().pathname.split('/')[2];
     const getReplys = useGetReplys();
-    const dispatch = useDispatch();
     const { data } = props;
     const [content, setContent] = useState("");
     const id = data.id;
