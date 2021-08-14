@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Nav from "./nav";
 import { loginNavs, navs } from "../routers/router.config";
-import img from '../static/image/cnodejs_light.svg';
+//import img from '../static/image/cnodejs_light.svg';
+import img from '../static/image/afcat.jpeg';
 
 function Header() {
     const { isLogin } = useSelector((state) => state.guards);
