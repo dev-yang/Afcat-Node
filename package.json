@@ -22,6 +22,11 @@
     "wangeditor": "^4.7.6",
     "web-vitals": "^0.2.4"
   },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0"
+  },
   "scripts": {
     "start": "craco start",
     "build": "craco build",
