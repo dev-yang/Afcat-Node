@@ -12,17 +12,8 @@ function useLoadTopic() {
 }
 function useLoadViewCount() { 
     return async (id)=>{ 
-   // await signHttp.post(`/article/${id}/view_count`);
-     fetch(signHttp,{
-                method:'post',
-                headers: {
-                  "content-type": "application/text",
-                },
-                body:`/article/${id}/view_count`
-     }).then((response)=>{ })
-
-   
-  }
+    await signHttp.patch(`/article/${id}/view_count`);
+    }
 }
  
 export {useLoadTopic,useLoadViewCount};

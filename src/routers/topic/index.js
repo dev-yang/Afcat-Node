@@ -15,9 +15,9 @@ function TopicPage(props) {
     const { data } = useSelector(state => state.topic);
     const getViewCount = useLoadViewCount();
     const getData = useLoadTopic();
-    // useEffect(() => {
-    //     getViewCount(id);
-    // }, [id])
+    useEffect(() => {
+        getViewCount(id);
+    }, [id])
     useEffect(() => {
         getData(id);
     }, [id])
