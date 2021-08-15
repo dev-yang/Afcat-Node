@@ -1,5 +1,5 @@
 import { Button, Form, Input, Modal } from "antd";
-import axios from "axios";
+import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "../../static/css/signup.css"
 import {signHttp} from "../../store/action/config";
 //import {history} from 'history/history';
@@ -45,41 +45,49 @@ function SignUpPage() {
     return <div className="wrap-signup">
         <Form
             name="signup"
-            labelCol={{ span: 8 }}
-            wrapperCol={{ span: 8 }}
+            className="login-form"
+            //labelCol={{ span: 8 }}
+            //wrapperCol={{ span: 8 }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
         >
+            <Form.Item>
+                <div  className = "fromHeader">用户注册</div>
+            </Form.Item>
             <Form.Item
-                label="用户名："
                 name="username"
                 rules={[{ required: true, message: '请输入您的用户名！' }]}
             >
-                <Input />
+                <Input  placeholder="用户名"
+                prefix={<UserOutlined className="site-form-item-icon" />}
+                />
             </Form.Item>
             <Form.Item
-                label="密码："
                 name="password"
                 rules={[{ required: true, message: '请输入您的密码！' }]}
             >
-                <Input.Password />
+                <Input.Password  placeholder="密码"
+                prefix={<LockOutlined className="site-form-item-icon" />}
+                />
             </Form.Item>
 
             <Form.Item
-                label="重复密码："
                 name="repassword"
                 rules={[{ required: true, message: '请再次输入您的密码！' }]}
             >
-                <Input.Password />
+                <Input.Password placeholder="确认密码"
+               prefix={<LockOutlined className="site-form-item-icon" />}
+                />
             </Form.Item>
 
             <Form.Item
-                wrapperCol={{ offset: 9, span: 16 }}
+                // wrapperCol={{ offset: 9, span: 16 }}
             >
                 <Button type="primary" htmlType="submit" className="signup-button">
                     注册
                 </Button>
             </Form.Item>
+           
         </Form>
     </div>
 }

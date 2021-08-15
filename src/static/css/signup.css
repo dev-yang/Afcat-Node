@@ -1,7 +1,16 @@
 .wrap-signup {
-
+    padding: 20px 30vw;
 }
-
+.wrap-signup .login-form {
+    width: 25vw;
+    background: #fff;
+    padding: 50px;
+}
 .signup-button {
-    width: 300px;
+    width: 100%;
+}
+.fromHeader{
+    color: #5a8bcf;
+    font-size: 1.5rem;
+    text-align: center;
 }

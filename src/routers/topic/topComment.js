@@ -1,5 +1,5 @@
 
-import { Card, Divider } from "antd";
+import { Divider } from "antd";
 import moment from 'moment';
 function TopComment(props) {
     const { data } = props;
@@ -18,9 +18,7 @@ function TopComment(props) {
                       {moment(data.createdAt).fromNow()}
                     </li>
                     <li>作者
-                   <a href="">
-                            {data.username && data.username}
-                        </a>
+                   <a href={'/user/'+data.userId}>{data.username && data.username}</a>
 
                     </li>
                     <li>{data.viewCount} 次浏览</li>

@@ -18,6 +18,7 @@ function topics(topics = {
         data: action.data,
         loading: false
       }
+    default:
   }
   return topics;
 }

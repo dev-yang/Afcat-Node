@@ -1,10 +1,23 @@
 .wrap-login {
     padding: 20px 30vw;
 }
-.login-form {
+.wrap-login .login-form {
     width: 25vw;
+    background: #fff;
+    padding: 50px;
+    border-radius: 10px;
 }
-
 .login-form-button {
     width: 100%;
+}
+.fromHeader{
+    color: #5a8bcf;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.signupAdom{
+    color: #ccc;
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 10px;
 }

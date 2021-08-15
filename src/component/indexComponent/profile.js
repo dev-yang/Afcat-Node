@@ -11,7 +11,8 @@ function Profile({title="个人信息"}) {
   return (
     <div>
       <Card type="inner" title={title}>
-        <a href="javascript:;" onClick={()=>replace('/user')}>
+        {/* <a href={/user/+user.userId} onClick={()=>replace('/user')}> */}
+        <a href={/user/+user.id}>
           <Avatar src={user.avatar} icon={<UserOutlined />} />
         </a>
         <div>姓名：{user.username}</div>

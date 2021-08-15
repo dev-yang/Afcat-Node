@@ -1,0 +1,12 @@
+.ant-card .ant-card-body div{
+    margin: 10px auto;
+}
+#tab-value{
+    width: 100px;
+}
+#article_title{
+    border-radius: 5px;
+}
+#topic_create_warn{
+    margin-left: 10px;
+}
