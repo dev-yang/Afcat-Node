@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import "../../static/css/login.css";
-import { signHttp } from "../../store/action/config";
+import { signHttp, publicUrl } from "../../store/action/config";
 
 function LoginPage() {
   const dispatch = useDispatch();
@@ -34,6 +34,12 @@ function LoginPage() {
             user: reply.results
           })
           reply.results.isLogin = true;
+
+          const avatarStr = publicUrl+reply.results.avatar;
+            dispatch({
+              type: "USERINFO_UPDATE",
+              avatar: avatarStr,
+            })
           // let userid = reply.results.id;
         } else {
           message.error('用户名或密码错误！');

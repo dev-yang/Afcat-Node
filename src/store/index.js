@@ -7,6 +7,7 @@ import user from "./reducer/user";
 import category from "./reducer/category";
 import userArticles from "./reducer/userArticles"; 
 import userReplies from "./reducer/userReplies"; 
+import userInfo from "./reducer/userInfo";
 
 export default createStore(combineReducers({
     topics,
@@ -16,5 +17,6 @@ export default createStore(combineReducers({
     user,
     category,
     userArticles,
-    userReplies
+    userReplies,
+    userInfo,
 }));
