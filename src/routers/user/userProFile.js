@@ -9,6 +9,7 @@ function UserProfile(props) {
     const userId = useLocation().pathname.split('/')[2];
     const { replace } = useHistory();
     const { profile = {} } = useSelector((state) => state.user);
+    const { avatar } = useSelector(state=>state.userInfo);
     const getUserProfile = useLoadUserProfile();
     useEffect(() => {
         getUserProfile(userId);
@@ -18,7 +19,7 @@ function UserProfile(props) {
     return <div>
         {profile.username ? <Card type="inner" title={<a href="/">主页/</a>}>
             <a href={'/user/'+profile.userId} onClick={() => replace('/user')}>
-                <Avatar src={profile.avatar} icon={<UserOutlined />} />
+                <Avatar src={avatar} icon={<UserOutlined />} />
             </a>
             <div>姓名：{profile.username}</div>
         </Card> : ''}

@@ -21,5 +21,6 @@ const signHttp = axios.create({
 const indexNavHttp = axios.create({
   baseURL:"/"
 });
+const publicUrl = "http://39.99.151.246";
 
-export {http, signHttp,http1,indexNavHttp}
+export {http, signHttp,http1,indexNavHttp,publicUrl}

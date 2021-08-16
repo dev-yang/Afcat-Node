@@ -7,13 +7,14 @@ import { useHistory } from "react-router-dom";
 
 function Profile({title="个人信息"}) {
   const { user = {} } = useSelector((state) => state.guards);
+  const { avatar } = useSelector(state=>state.userInfo);
   const { replace } = useHistory();
   return (
     <div>
       <Card type="inner" title={title}>
         {/* <a href={/user/+user.userId} onClick={()=>replace('/user')}> */}
         <a href={/user/+user.id}>
-          <Avatar src={user.avatar} icon={<UserOutlined />} />
+          <Avatar src={avatar} icon={<UserOutlined />} />
         </a>
         <div>姓名：{user.username}</div>
       </Card>
