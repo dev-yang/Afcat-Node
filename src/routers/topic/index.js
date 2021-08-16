@@ -1,7 +1,7 @@
-import { Row, Col, Card, Divider } from "antd";
-import { useState, useEffect } from "react";
+import { Row, Col } from "antd";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useLoadTopic } from "../../store/action/topic";
+import { useLoadTopic,useLoadViewCount } from "../../store/action/topic";
 import { useLocation } from "react-router-dom";
 import TopicComment from "./topicComment";
 import TopComment from "./topComment";
@@ -13,7 +13,11 @@ import "../../static/css/topic.css";
 function TopicPage(props) {
     const id = useLocation().pathname.split('/')[2];
     const { data } = useSelector(state => state.topic);
+    const getViewCount = useLoadViewCount();
     const getData = useLoadTopic();
+    useEffect(() => {
+        getViewCount(id);
+    }, [id])
     useEffect(() => {
         getData(id);
     }, [id])

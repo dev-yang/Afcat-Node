@@ -44,16 +44,10 @@ function IndexList(props) {
               <span className={item.isTop==1?'top':tabClassNode(item.categoryId)}>
                 {/*(item.categoryId?'good':item.tab)*/}
                   {
-                    /*item.top?"置顶":(item.good?'精华':tabNode(item.tab))*/
-                    item.isTop==1?"置顶":tabNode(item.categoryId)
+                    item.isTop===1?"置顶":tabNode(item.categoryId)
                   }
               </span>
               <Link to={'/topic/'+item.id}>&nbsp;&nbsp;&nbsp;{item.title}&nbsp;&nbsp;&nbsp;</Link>
-              {item.isTop==1 ?
-                <span className="put_top" onClick={() => { isTop(item.id,0) }}>取消置顶</span> :
-                <span className="put_end" onClick={() => { isTop(item.id,1) }}>置顶</span>
-                
-              }
           </div>
       </List.Item>
     }}

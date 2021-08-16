@@ -13,7 +13,7 @@ function TopicComment(props) {
   const { data } = useSelector(state=>state.replies);
   useEffect(() => {
     getReplys(id);
-  }) 
+  },[]);
   
   if (!data.replies) {
      return <div></div>;
@@ -35,7 +35,7 @@ function TopicComment(props) {
         {data.replies.map((item, index) => {
           return <Comment
               key ={index}
-              author={<a className="authorName">{item.username}</a>}
+              author={<a href={'/user/'+item.userId} className="authorName">{item.username}</a>}
               avatar={
                 <Avatar
                   src={item.avatar}

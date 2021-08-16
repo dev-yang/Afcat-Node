@@ -1,6 +1,6 @@
 function guards(guards={
     isLogin:false,
-    prevPath:""
+    prevPath:"" 
 },action) {
   //debugger;
     switch (action.type) {
@@ -21,6 +21,7 @@ function guards(guards={
           isLogin:false,
           prevPath:action.path
         }
+      default:
     }
     return guards;
 }

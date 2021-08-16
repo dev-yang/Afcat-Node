@@ -4,9 +4,9 @@ function topic(topic={
     switch (action.type) {
        case "TOPIC_LOAD":
           return {
-            data:action.data, 
-            
+            data:action.data
           } 
+          default:
     }
     return topic;
   }

@@ -1,6 +1,5 @@
-import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { http,signHttp } from "./config";
+import { signHttp } from "./config";
 // hooks 放在组件最外层，数据请求，要放在副作用中
 function useGetReplys() { 
   const dispatch = useDispatch();

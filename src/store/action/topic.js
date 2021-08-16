@@ -1,6 +1,5 @@
-import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { http,signHttp } from "./config";
+import { signHttp } from "./config";
 function useLoadTopic() { 
   const dispatch = useDispatch();
     return async (id)=>{ 
@@ -11,5 +10,10 @@ function useLoadTopic() {
     })
   }
 }
+function useLoadViewCount() { 
+    return async (id)=>{ 
+    await signHttp.patch(`/article/${id}/view_count`);
+    }
+}
  
-export {useLoadTopic};
+export {useLoadTopic,useLoadViewCount};

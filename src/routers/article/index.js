@@ -1,18 +1,19 @@
 import { Button, Card, message } from "antd";
 import { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { signHttp } from "../../store/action/config";
 import { useCategory } from "../../store/action/category";
 import { useSelector } from "react-redux";
+import "../../static/css/article.css";
+
 function CreateArticlePage(props) {
-    const { isLogin, user = {} } = useSelector(state => state.guards);
+    const { user = {} } = useSelector(state => state.guards);
 
     const { data } = useSelector(state => state.category);
     const getData = useCategory();
     useEffect(() => {
         getData();
     }, [])
-    console.log(data);
     const [types = 'all', setTypes] = useState("");
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
@@ -22,25 +23,31 @@ function CreateArticlePage(props) {
             <Card
                 title="发布话题"
             >
-                <span className="tab-selector">选择版块：</span>
-                <select name="tab" id="tab-value" value={types} onChange={(e) => getSelectedOption(e)}>
-                    <option value="">请选择</option>
-                    {data.map((item, index) => {
-                        return <option value={item.id}>{item.name}</option> 
-                    })}
-                    {/* <option value="1">问答</option>
-                    <option value="2">招聘</option>
-                    <option value="3">分享</option> */}
-                </select>
-                <span id="topic_create_warn"></span>
-
                 <div>
-                    <textarea id="article_title" value={title} placeholder="标题字数10字以上"
-                        onChange={(e) => { setTitle(e.target.value) }}></textarea>
+                    <span className="tab-selector">选择版块：</span>
+                    <select name="tab" id="tab-value" value={types} onChange={(e) => getSelectedOption(e)}>
+                        <option value="">请选择</option>
+                        {data.map((item, index) => {
+                            return <option value={item.id}>{item.name}</option> 
+                        })}
+                    </select>
+                    <span id="topic_create_warn"></span>
                 </div>
                 <div>
-                    <textarea id="article_content" value={content} placeholder="内容输入"
-                        onChange={(e) => { setContent(e.target.value) }}></textarea>
+                    <textarea id="article_title" 
+                        value={title} placeholder="标题字数10字以上"
+                        onChange={(e) => { setTitle(e.target.value) }}
+                        rows="1"
+                        cols="120"
+                        ></textarea>
+                </div>
+                <div>
+                    <textarea id="article_content" 
+                        value={content} placeholder="内容输入"
+                        onChange={(e) => { setContent(e.target.value) }}
+                        rows="12"
+                        cols="120"
+                        ></textarea>
                 </div>
 
                 <Button type="primary" onClick={() => {
@@ -62,29 +69,7 @@ function CreateArticlePage(props) {
         }
         setTypes(e.target.value);
     }
-    // function insertArticle(){
-    //     types==""?
-    //         alert("必须选择一个版块！")
-    //     :
-    //     title.length>=10?
-    //         fetch('https://cnodejs.org/api/v1/topics',{
-    //             method:'post',
-    //             headers:{
-    //                 'Accept':'application/json,text/plain,*/*',/* 格式限制：json、文本、其他格式 */
-    //                 'Content-Type':'application/x-www-form-urlencoded'/* 请求内容类型 */
-    //             },
-    //             body:`accesstoken=f7b513a6-fdce-472b-a23f-4ecd5a4fa230&tab=${types}&title=${title}&content=${content}`
-    //         }).then((response)=>{
-    //             //由于找不到真实请求response对应的id，发帖成功后直接返回到?tab=dev
-    //             console.log(response);
-    //             response.status===200 ?
-    //             push(`/?tab=${types}`)
-    //             :
-    //             message.info('发帖失败');
-    //         })
-    //         :alert("标题字数少于10个字");
-
-    // }
+   
     function insertArticle() {
         types == "" ?
             message.info('必须选择一个版块！')
