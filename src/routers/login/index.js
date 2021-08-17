@@ -41,6 +41,7 @@ function LoginPage() {
               avatar: avatarStr,
             })
           // let userid = reply.results.id;
+          document.cookie = 'user=isLogin=true,username='+reply.results.username+',id='+reply.results.id;
         } else {
           message.error('用户名或密码错误！');
         }
