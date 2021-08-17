@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import "../../static/css/login.css";
-import { signHttp } from "../../store/action/config";
+import { signHttp, publicUrl } from "../../store/action/config";
 
 function LoginPage() {
   const dispatch = useDispatch();
@@ -25,15 +25,25 @@ function LoginPage() {
         if (code === 0) {
           message.info('登录成功~');
           let authorization = response.headers.authorization
-          let userid = reply.results.id;
-          let avatar = reply.results.avatar;
+          // let userid = reply.results.id;
+          // let avatar = reply.results.avatar;
           reply.results.authorization = authorization;
 
           dispatch({
             type: "GUARDS_LOGIN",
             user: reply.results
           })
+          reply.results.isLogin = true;
+
+          const avatarStr = publicUrl+reply.results.avatar;
+            dispatch({
+              type: "USERINFO_UPDATE",
+              avatar: avatarStr,
+            })
           // let userid = reply.results.id;
+          document.cookie = 'user=isLogin=true,username='+reply.results.username+',id='+reply.results.id
+                    +',avatarStr='+publicUrl+reply.results.avatar;
+            
         } else {
           message.error('用户名或密码错误！');
         }
@@ -43,12 +53,17 @@ function LoginPage() {
       });
   }
   return <div className="wrap-login">
+     
     <Form
       name="normal_login"
       className="login-form"
       initialValues={{ remember: true }}
       onFinish={onFinish}
     >
+      <Form.Item>
+         <div  className = "fromHeader">用户登录</div>
+      </Form.Item>
+      
       <Form.Item
         name="username"
         rules={[
@@ -81,8 +96,7 @@ function LoginPage() {
         <Button type="primary" htmlType="submit" className="login-form-button">
           登录
         </Button>
-        {/* Or
-        <a href="">立即注册</a> */}
+        <a className="signupAdom" href="/signup">还没有账号?去注册</a>
       </Form.Item>
     </Form >
   </div>

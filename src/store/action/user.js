@@ -5,11 +5,11 @@ function useLoadUserProfile() {
   const { user = {} } = useSelector((state) => state.guards);
   const dispatch = useDispatch();
   
-  return async () => {
-    const { data } = await signHttp.get(`/user/profile?type=0&value=${user.id}`);
+  return async (userId) => {
+    const { data } = await signHttp.get(`/user/profile?type=0&value=${userId}`);
     dispatch({
       type: "USER_PROFILE",
-      data: data.results
+      profile: data.results
     });
   };
 }
@@ -17,12 +17,11 @@ function useLoadUserProfile() {
 function useLoadUserArticles() {
   const { user = {} } = useSelector((state) => state.guards);
   const dispatch = useDispatch();
-  return async () => {
-    const { data } = await signHttp.get(`/user/articles?userId=${user.id}`);
-    //console.log("个人发布的文章：" + data);
+  return async (userId) => {
+    const { data } = await signHttp.get(`/user/articles?userId=${userId}`);
     dispatch({
       type: "USER_ARTICLES",
-      data: data.results
+      articles: data.results
     });
   };
 }
@@ -30,12 +29,12 @@ function useLoadUserArticles() {
 function useLoadUserReplies() {
   const { user = {} } = useSelector((state) => state.guards);
   const dispatch = useDispatch();
-  return async () => {
-    const { data } = await signHttp.get(`/user/replies?userId=${user.id}`);
-    console.log("个人回复：" + data);
+  return async (userId) => {
+    const { data } = await signHttp.get(`/user/replies?userId=${userId}`);
+    console.log(data);
     dispatch({
       type: "USER_REPLIES",
-      data: data.results
+      replies: data.results
     });
   };
 }

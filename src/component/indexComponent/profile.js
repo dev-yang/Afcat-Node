@@ -3,17 +3,22 @@
 import { Card, Avatar } from "antd";
 import { useSelector } from "react-redux";
 import { UserOutlined } from "@ant-design/icons";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Profile({title="个人信息"}) {
   const { user = {} } = useSelector((state) => state.guards);
-  const { replace } = useHistory();
+  const { avatar } = useSelector(state=>state.userInfo) 
+  console.log(avatar);
+  console.log(user)
+ // const { replace } = useHistory();
   return (
     <div>
       <Card type="inner" title={title}>
-        <a href="javascript:;" onClick={()=>replace('/user')}>
-          <Avatar src={user.avatar} icon={<UserOutlined />} />
-        </a>
+        {/* <a href={/user/+user.userId} onClick={()=>replace('/user')}> */}
+        {/* <a href={/user/+user.id}>
+          <Avatar src={avatar} icon={<UserOutlined />} />
+        </a> */}
+        <Link to={'/user/'+user.id}><Avatar src={user.avatarStr} icon={<UserOutlined />} /></Link>
         <div>姓名：{user.username}</div>
       </Card>
     </div>

@@ -92,7 +92,7 @@ const router_list = [
   }
   , {
     path: "/user",
-    exact: true,
+    //exact: true,
     render(props) {
       return <UserPage {...props} />
     }

@@ -1,7 +1,6 @@
 function replies(replies={
     data:[] 
 },action) {
-     
     switch (action.type) {
        case "REPLIES_LOAD":
           return {
