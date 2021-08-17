@@ -1,15 +1,16 @@
-import { List, message , Switch } from "antd";
+import { List, message  } from "antd";
 import { useEffect } from "react";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector} from "react-redux";
 import { useLoadTopics } from "../../store/action/topics";
 import { Link,useLocation } from "react-router-dom";
-import { http1,indexNavHttp } from "../../store/action/config";
-import qs from "qs";
+//import { http1,indexNavHttp } from "../../store/action/config";
+//import qs from "qs";
 function tabNode(tab){
   switch(tab){
       case 1:return '问答';
       case 2:return '招聘';
       case 3:return '分享';
+      default:return '全部'
       //case 4:return '';
   }
 }
@@ -18,6 +19,7 @@ function tabClassNode(tab){
     case 1:return 'ask';
     case 2:return 'ask';
     case 3:return 'share';
+    default:
     //case 4:return '';
   }
 } 
@@ -102,24 +104,24 @@ function IndexList(props) {
    * 
    */
   
-  
-  function isTop(id,isTop) {
+  //置頂功能取消
+  // function isTop(id,isTop) {
    
-    http1.patch(`/${id}/top`, [isTop=isTop] )
-      .then(function (response) {
-        const reply = response.data;
-        const code = reply.code;
-        if (code === 0) {
-          //成功请求
-          const { tab } = qs.parse(search.slice(1));
-          indexNavHttp.get(`/?tab=${tab}`)
-        }
-      })
-      .catch(function (error) {
-        message.error('置顶错误！');
-      });
+  //   http1.patch(`/${id}/top`, [isTop=isTop] )
+  //     .then(function (response) {
+  //       const reply = response.data;
+  //       const code = reply.code;
+  //       if (code === 0) {
+  //         //成功请求
+  //         const { tab } = qs.parse(search.slice(1));
+  //         indexNavHttp.get(`/?tab=${tab}`)
+  //       }
+  //     })
+  //     .catch(function (error) {
+  //       message.error('置顶错误！');
+  //     });
 
-  }
+  // }
   
 }
 

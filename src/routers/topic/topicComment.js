@@ -4,7 +4,7 @@ import moment from 'moment';
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useGetReplys } from "../../store/action/getReplys";
-import { useLocation } from "react-router-dom"; 
+import { Link,useLocation } from "react-router-dom"; 
  
 
 function TopicComment(props) {
@@ -19,7 +19,7 @@ function TopicComment(props) {
      return <div></div>;
   } 
   const replies = data.replies;
-  if(replies.length == 0){
+  if(replies.length === 0){
      return <div></div>;
   }
   let count = data.count;
@@ -35,7 +35,8 @@ function TopicComment(props) {
         {data.replies.map((item, index) => {
           return <Comment
               key ={index}
-              author={<a href={'/user/'+item.userId} className="authorName">{item.username}</a>}
+              // author={<a href={'/user/'+item.userId} className="authorName">{item.username}</a>}
+              author={<Link to={'/user/'+item.userId}><span className="authorName">{item.username && item.username}</span></Link>}
               avatar={
                 <Avatar
                   src={item.avatar}

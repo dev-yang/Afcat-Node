@@ -19,7 +19,7 @@ function UserProfile(props) {
     return <div>
         {profile.username ? <Card type="inner" title={<a href="/">主页/</a>}>
             <a href={'/user/'+profile.userId} onClick={() => replace('/user')}>
-                <Avatar src={avatar} icon={<UserOutlined />} />
+                <Avatar src={profile.avatar} icon={<UserOutlined />} />
             </a>
             <div>姓名：{profile.username}</div>
         </Card> : ''}

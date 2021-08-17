@@ -1,6 +1,7 @@
 
 import { Divider } from "antd";
 import moment from 'moment';
+import { Link } from "react-router-dom";
 function TopComment(props) {
     const { data } = props;
 
@@ -8,7 +9,7 @@ function TopComment(props) {
         <div className="topic_top">
             <div className="topic_title">
                 <h1>
-                    {data.isTop == 1 ? <span className="top">置顶</span> : ""}
+                    {data.isTop === 1 ? <span className="top">置顶</span> : ""}
                     {data.title}
                 </h1>
             </div>
@@ -18,7 +19,8 @@ function TopComment(props) {
                       {moment(data.createdAt).fromNow()}
                     </li>
                     <li>作者
-                   <a href={'/user/'+data.userId}>{data.username && data.username}</a>
+                    <Link to={'/user/'+data.userId}><span>{data.username && data.username}</span></Link>
+                     {/* <a href={'/user/'+data.userId}>{data.username && data.username}</a> */}
 
                     </li>
                     <li>{data.viewCount} 次浏览</li>
