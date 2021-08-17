@@ -23,20 +23,21 @@ function SettingPage() {
   const dispatch = useDispatch()
   function customRequest(options) {
 
-    console.log(options);
+   
     let params = new FormData();
     params.append("avatar", options.file);
+    console.log(options.file);
     signHttp.patch(`/user/avatar`, params, {
       headers: {
         'Content-Type': 'multipart/form-data',
         authorization: user.authorization,
       }
     }).then((res) => {
-      console.log("res");
-      console.log(res);
+      //console.log("res");
+      //console.log(res);
       const avatarStr = publicUrl + res.data.results;
-      console.log("hahahahha");
-      console.log(avatarStr);
+      //console.log("hahahahha");
+      //console.log(avatarStr);
       dispatch({
         type: "USERINFO_UPDATE",
         avatar: avatarStr,
@@ -67,23 +68,23 @@ function SettingPage() {
     },
   };
   return <div>
-    <Row gutter={20}>
-      <Col span={14}>
-        <Avatar
-          src={<Image src={avatar} />}
-        />
-      </Col>
-      <Col span={14}>
-        <div>
-          姓名：{user.username}
-        </div>
-      </Col>
-      <Col span={14}>
-        <Upload {...props}>
-          <Button icon={<UploadOutlined />}>上传头像</Button>
-        </Upload>
-      </Col>
-    </Row>
+          <Row gutter={20}>
+            <Col span={14}>
+              <Avatar
+                src={<Image src={avatar} />}
+              />
+            </Col>
+            <Col span={14}>
+              <div>
+                姓名：{user.username}
+              </div>
+            </Col>
+            <Col span={14}>
+              <Upload {...props}>
+                <Button icon={<UploadOutlined />}>上传头像</Button>
+              </Upload>
+            </Col>
+          </Row>
   </div>
 }
 
