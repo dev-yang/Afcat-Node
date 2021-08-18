@@ -7,6 +7,7 @@ import TopicComment from "./topicComment";
 import TopComment from "./topComment";
 import AddTopicComment from "./addTopicComment";
 import GitLogin from '../../component/indexComponent/gitLogin';
+import Friends from '../../component/indexComponent/friends';
 import "../../static/css/topic.css";
 
 
@@ -24,7 +25,7 @@ function TopicPage(props) {
     if (!data) {
         return <div>暂无数据</div>
     }
-    // 测试fork和pr
+    
     return <Row span={18} justify="space-around">
         <Col span={18}>
             <div className="view">
@@ -47,6 +48,7 @@ function TopicPage(props) {
         </Col>
         <Col span={5}>
             <GitLogin />
+            <Friends />
         </Col>
     </Row>
 

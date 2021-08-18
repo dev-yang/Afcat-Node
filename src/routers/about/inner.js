@@ -1,13 +1,10 @@
 const inner = `<div class="markdown-text"><h3>关于</h3>
-<p>CNode 社区为国内最大最具影响力的 Node.js 开源技术社区，致力于 Node.js 的技术研究。</p>
-<p>CNode 社区由一批热爱 Node.js 技术的工程师发起，目前已经吸引了互联网各个公司的专业技术人员加入，我们非常欢迎更多对 Node.js 感兴趣的朋友。</p>
-<p>CNode 的 SLA 保证是，一个9，即 90.000000%。</p>
-<p>社区目前由 <a href="http://cnodejs.org/user/alsotang" target="_blank">@alsotang</a> 在维护，有问题请联系：<a href="https://github.com/alsotang" target="_blank">https://github.com/alsotang</a></p>
-<p>请关注我们的官方微博：<a href="http://weibo.com/cnodejs" target="_blank">http://weibo.com/cnodejs</a></p>
-<h3>移动客户端</h3>
-<p>客户端由 <a href="https://cnodejs.org/user/soliury" target="_blank">@soliury</a> 开发维护。</p>
-<p>源码地址： <a href="https://github.com/soliury/noder-react-native" target="_blank">https://github.com/soliury/noder-react-native</a> 。</p>
-<p>立即体验 CNode 客户端，直接扫描页面右侧二维码。</p>
-<p>另，安卓用户同时可选择：<a href="https://github.com/TakWolf/CNode-Material-Design" target="_blank">https://github.com/TakWolf/CNode-Material-Design</a> ，这是 Java 原生开发的安卓客户端。</p>
+<p>亚联（天津）信息技术有限责任公司是由亚洲金融合作联盟(AFCA)发起成立的信息科技服务机构。公司成立于2013年，秉承“科技改变生活”理念，立足金融行业，运用国际化的管理运营模式，打造多样创新型的IT技术，为金融机构提供覆盖应用系统、IT基础设施，并贯穿规划、建设、运营及移交的端到端的信息技术服务。公司业务领域涉及传统银行、互联网金融、银行渠道、金融市场、银行零售、IT服务治理等多个方面。产品覆盖“优交付”及“智慧渠道”系列的“智慧运营”、“智慧零售”、“智慧网点”、“智慧终端”。</p>
+<p>自成立以来，亚联信息为中国民生银行、中国建设银行、北京银行、包商银行等国内多家银行提供技术服务；与IBM、华为、思科等多家服务商共同合作，搭建广阔的发展平台。亚联先后成立西安分公司、上海分公司、河南办事处、甘肃办事处，为各地区客户提供优质服务。</p>
+<p>亚联信息依托专业的研发及运维团队，凭借深厚的技术服务及项目实施落地经验，获得“国家高新技术企业证书”、“ITSS三级运维证书”、“商用密码产品认证证书”、“软件信息安全证书”、“CMMI5级认证”等多项资格认证 ，对金融行业的业务发展有着深刻理解和丰富实践</p>
+
 </div>`;
 export default inner;
+
+
+

@@ -1,5 +1,5 @@
-import erweima from '../../static/image/erweima.png';
-import rubyChina from '../../static/image/ruby-china.png';
+import afcatWinxin from '../../static/image/afcatWinxin.jpg';
+import afcatLogo from '../../static/image/亚联logo.png';
 import {Card} from 'antd';
 
 export default function Friends(){
@@ -8,17 +8,17 @@ export default function Friends(){
             <Card type="inner" size="small" title="友情社区">
                 <ul>
                     <li>
-                        <img src={rubyChina}/>
+                        <a href="http://www.afcat.com.cn"><img src={afcatLogo} alt=''/> </a>
                     </li>
-                    <li><img src={rubyChina}/></li>
-                    <li><img src={rubyChina}/></li>
+                    {/* <li><img src={afcatLogo}/></li>
+                    <li><img src={afcatLogo}/></li> */}
                 </ul>
             </Card>
         </div>
         <div>
-            <Card type="inner" size="small" title="客户端二维码">
+            <Card type="inner" size="small" title="亚联精英联盟">
                 <div className="erweima">
-                    <img src={erweima}/>
+                    <img src={afcatWinxin} alt=''/>
                 </div>
             </Card>
         </div>
