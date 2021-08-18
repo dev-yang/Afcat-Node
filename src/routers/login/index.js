@@ -24,6 +24,7 @@ function LoginPage() {
         const code = reply.code;
         if (code === 0) {
           message.info('登录成功~');
+          console.log(response )
           let authorization = response.headers.authorization
           // let userid = reply.results.id;
           // let avatar = reply.results.avatar;
@@ -41,6 +42,9 @@ function LoginPage() {
               avatar: avatarStr,
             })
           // let userid = reply.results.id;
+          document.cookie = 'user=isLogin=true,username='+reply.results.username+',id='+reply.results.id
+                    +',avatarStr='+publicUrl+reply.results.avatar+',authorization='+ response.headers.authorization;
+            
         } else {
           message.error('用户名或密码错误！');
         }

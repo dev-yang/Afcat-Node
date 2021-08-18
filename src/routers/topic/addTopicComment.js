@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 import { signHttp } from "../../store/action/config";
 import { useGetReplys } from "../../store/action/getReplys";
 import { useLocation } from "react-router-dom"; 
+import users from "../../component/indexComponent/getCookie";
+
 function AddTopicComment(props) {
     const commentid = useLocation().pathname.split('/')[2];
     const getReplys = useGetReplys();
@@ -12,10 +14,11 @@ function AddTopicComment(props) {
     const [content, setContent] = useState("");
     const id = data.id;
     const { isLogin , user = {}} = useSelector(state => state.guards);
+    console.log( users )
     const addComment = () => {
         signHttp.post('/reply',
             { 'articleId': id, 'content': content },
-            { headers: { 'authorization': user.authorization?user.authorization:'' } })
+            { headers: { 'authorization': user.authorization?user.authorization:users.authorization } })
             .then(function (res) {
                 const code = res.data.code;
                 if (code === 0) {

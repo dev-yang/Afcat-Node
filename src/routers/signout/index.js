@@ -9,6 +9,11 @@ function SignOutPage() {
         dispatch({
             type: "GUARDS_LOGINOUT",
         })
+        const data =new Date();
+        data.setTime(data.getTime()-10000);
+
+        document.cookie="user="+'';
+        console.log(document.cookie)
         replace(prevPath ? prevPath : "/");
     }, [])
     

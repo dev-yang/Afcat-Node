@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 
 function Profile({title="个人信息"}) {
   const { user = {} } = useSelector((state) => state.guards);
-  const { avatar } = useSelector(state=>state.userInfo);
-  console.log(avatar);
+  const { avatar } = useSelector(state=>state.userInfo) 
+
  // const { replace } = useHistory();
   return (
     <div>
@@ -17,7 +17,7 @@ function Profile({title="个人信息"}) {
         {/* <a href={/user/+user.id}>
           <Avatar src={avatar} icon={<UserOutlined />} />
         </a> */}
-        <Link to={'/user/'+user.id}><Avatar src={avatar} icon={<UserOutlined />} /></Link>
+        <Link to={'/user/'+user.id}><Avatar src={user.avatarStr||avatar} icon={<UserOutlined />} /></Link>
         <div>姓名：{user.username}</div>
       </Card>
     </div>
