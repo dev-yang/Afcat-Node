@@ -24,12 +24,11 @@ function SettingPage() {
   const { avatar } = useSelector(state => state.userInfo);
   const dispatch = useDispatch()
   function customRequest(options) {
-
+    var prevCookie ='';
    
     let params = new FormData();
     params.append("avatar", options.file);
-    console.log(options.file);
-    console.log(users)
+  
     signHttp.patch(`/user/avatar`, params, {
       headers: {
         'Content-Type': 'multipart/form-data',
@@ -46,6 +45,11 @@ function SettingPage() {
         avatar: avatarStr,
       })
       options.onSuccess(res, options.file);
+
+      prevCookie = document.cookie.slice(0,document.cookie.indexOf('avatarStr'))+'avatarStr='+res.data.results;
+      //console.log( prevCookie )
+      document.cookie = prevCookie;
+
     })
   }
   const props = {
@@ -83,7 +87,7 @@ function SettingPage() {
               </div>
             </Col>
             <Col span={14}> */}
-              <Upload {...props}>
+              <Upload {...props} showUploadList={false}>
                 <Button icon={<UploadOutlined />}>上传头像</Button>
               </Upload>
             {/* </Col>
