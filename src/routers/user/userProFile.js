@@ -12,7 +12,7 @@ function UserProfile(props) {
     useEffect(() => {
         getUserProfile(userId);
 
-    }, [])
+    }, [userId])
     let avatatHttp = 'http://39.99.151.246/';
     return <div>
         {profile.username ? <Card type="inner" title={<a href="/">主页/</a>}>

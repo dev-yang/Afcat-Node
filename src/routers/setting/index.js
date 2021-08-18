@@ -71,7 +71,7 @@ function SettingPage() {
     },
   };
   return <div>
-          <Row gutter={20}>
+          {/* <Row gutter={20}>
             <Col span={14}>
               <Avatar
                 src={<Image src={avatar} />}
@@ -82,12 +82,12 @@ function SettingPage() {
                 姓名：{user.username}
               </div>
             </Col>
-            <Col span={14}>
+            <Col span={14}> */}
               <Upload {...props}>
                 <Button icon={<UploadOutlined />}>上传头像</Button>
               </Upload>
-            </Col>
-          </Row>
+            {/* </Col>
+          </Row> */}
   </div>
 }
 
