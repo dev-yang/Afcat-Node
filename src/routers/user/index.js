@@ -40,6 +40,7 @@ function UserPage() {
           <div className="user_card">
             <Card type="inner" title="最近创建的话题">
                 {articles&&articles.length>0?articles.map((item) => {
+                  console.log(item)
                 return (
                     <div>
                     <Avatar src={item.avatar} />

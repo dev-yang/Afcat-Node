@@ -6,6 +6,7 @@ import "./static/css/style.css";
 import Header from "./component/header";
 import { useDispatch } from "react-redux";
 import getCokie from './store/action/guards';
+import user from './component/indexComponent/getCookie';
 /*
   入场动画
 */
@@ -13,21 +14,14 @@ import getCokie from './store/action/guards';
 
 function App() {
   const dispatch = useDispatch();
- useEffect(() => {
-   if(document.cookie &&document.cookie !=''){
-     const getCookies = document.cookie.slice(5).split(',');
-     const user = {};
-     getCookies.map((item,index)=>{
-          user[item.split('=')[0]] = item.split('=')[1];
-     })
-     if(user.isLogin){
-        dispatch({
-          type: "GUARDS_LOGIN",
-          user: user
-        })
-     }
-   } 
- })
+  useEffect(() => {
+    if(user.isLogin){
+      dispatch({
+        type: "GUARDS_LOGIN",
+        user: user
+      })
+    }
+  })
  
 
   return <Layout>
