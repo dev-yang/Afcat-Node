@@ -33,7 +33,7 @@ function IndexPage() {
         </Col>
         <Col span={5}>
             <GitLogin />
-            <NoAnser />
+            {/* <NoAnser /> */}
             <Friends />
         </Col>
     </Row>
