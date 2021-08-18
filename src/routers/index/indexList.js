@@ -42,7 +42,6 @@ function IndexList(props) {
             <Link to={'/user/'+item.userId}><img src={item.avatar?item.avatar.indexOf('https') !== -1?item.avatar:avatatHttp+item.avatar:''} alt="" className="author_img"/></Link>
               <span className="commentCount"><em style={{ color:'#9e78c0'}}>{item.replyCount}</em><em style={{fontSize:"12px"}}>{item.viewCount}</em></span>
               <span className={item.isTop===1?'top':tabClassNode(item.categoryId)}>
-                
                   {
                     item.isTop===1?"置顶":tabNode(item.categoryId)
                   }

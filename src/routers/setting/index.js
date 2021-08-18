@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Avatar, Image, Button, Row, Col, Upload, message } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import { signHttp, publicUrl } from "../../store/action/config";
+import users from '../../component/indexComponent/getCookie';
 
 function beforeUpload(file) {
   const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
@@ -18,6 +19,7 @@ function beforeUpload(file) {
 }
 
 function SettingPage() {
+  
   const { user = {} } = useSelector(state => state.guards);
   const { avatar } = useSelector(state => state.userInfo);
   const dispatch = useDispatch()
@@ -27,10 +29,11 @@ function SettingPage() {
     let params = new FormData();
     params.append("avatar", options.file);
     console.log(options.file);
+    console.log(users)
     signHttp.patch(`/user/avatar`, params, {
       headers: {
         'Content-Type': 'multipart/form-data',
-        authorization: user.authorization,
+        authorization: user.authorization||users.authorization,
       }
     }).then((res) => {
       //console.log("res");
