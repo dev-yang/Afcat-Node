@@ -18,7 +18,7 @@ export default function Friends(){
         <div>
             <Card type="inner" size="small" title="亚联精英联盟">
                 <div className="erweima">
-                    <img src={afcatWinxin}/>
+                    <img src={afcatWinxin} alt=''/>
                 </div>
             </Card>
         </div>

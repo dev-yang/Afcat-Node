@@ -5,7 +5,6 @@ import qs from "qs";
 import IndexPagination from "./index_pagination";
 import { Row, Col } from 'antd';
 import GitLogin from '../../component/indexComponent/gitLogin';
-import NoAnser from '../../component/indexComponent/noAnswer';
 import Friends from '../../component/indexComponent/friends';
 
 
@@ -33,7 +32,6 @@ function IndexPage() {
         </Col>
         <Col span={5}>
             <GitLogin />
-            {/* <NoAnser /> */}
             <Friends />
         </Col>
     </Row>
