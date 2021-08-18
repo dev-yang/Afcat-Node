@@ -36,7 +36,8 @@ const router_list = [
           <APIPage {...props} />
       </Suspense>
     }
-  }, {
+  }, 
+  {
     path: "/about",
     exact: true,
     render(props) {
@@ -112,10 +113,12 @@ const navs = [
   },{
     to: "/getstart",
     title: "新手入门"
-  },{
-    to: "/api",
-    title: "API"
-  },{
+  },
+  // {
+  //   to: "/api",
+  //   title: "API"
+  // },
+  {
     to: "/about",
     title: "关于"
   },

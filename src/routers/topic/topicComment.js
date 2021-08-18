@@ -26,7 +26,7 @@ function TopicComment(props) {
   const  getMoreComment=(count) => {
       getReplys(id,1,count);
    }
-
+  let avatatHttp = 'http://39.99.151.246/public/avatar/';
   return ( <Card
         type="inner"
         title="回复"
@@ -35,11 +35,11 @@ function TopicComment(props) {
         {data.replies.map((item, index) => {
           return <Comment
               key ={index}
-              // author={<a href={'/user/'+item.userId} className="authorName">{item.username}</a>}
+               
               author={<Link to={'/user/'+item.userId}><span className="authorName">{item.username && item.username}</span></Link>}
               avatar={
                 <Avatar
-                  src={item.avatar}
+                  src={item.avatar?item.avatar.indexOf('https') !== -1?item.avatar:avatatHttp+item.avatar:''}
                   alt={item.avatar}
                 />
               }

@@ -1,13 +1,11 @@
 import { Card,Row, Col  } from "antd";
-import { useState } from "react";
-import Popup from "../../component/popup";
 import inner from "./inner";
 import GitLogin from '../../component/indexComponent/gitLogin';
 import Friends from '../../component/indexComponent/friends';
+import afcatAbout from '../../static/image/afcatAbout.png';
 
 function AboutPage() {
-  const [showPopup,setShowPopup] = useState(false);
-  return <Row span={18} justify="space-around">
+ return <Row span={18} justify="space-around">
   <Col span={18}>
   <div className="view">
       <Card
@@ -17,6 +15,7 @@ function AboutPage() {
         <div dangerouslySetInnerHTML={{
           __html: inner
         }}></div>
+        <img src={afcatAbout} alt=''/>
       </Card> 
   </div>
   </Col>

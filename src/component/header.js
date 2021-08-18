@@ -12,16 +12,17 @@ function Header() {
     return <Affix offsetTop={0} className="header">
         <Layout.Header style={{height:"48px"}}>
             <Row className="wrap">
-                <Col span={8}>
+                <Col span={10}>
                    <h1 id="logo">
                       <Link to="/">
-                        <img src={imgLogo} alt="logo图片" style={{width:"48px",height:"48px",margin: "0 5px"}}/>
-                        <img src={img} alt="logo图片" className='logo'/>
+                        <img src={imgLogo} alt="logo图片" style={{width:"36px",height:"36px",margin: "0 5px"}}/>
+                        <span>亚联信息 AFCAT</span>
+                        {/* <img src={img} alt="logo图片" className='logo'/> */}
                       </Link>
                       <input type="text" className="inputSearch"/>
                    </h1>
                 </Col>
-                <Col span={16}>
+                <Col span={14}>
                     <Nav 
                       data={isLogin?loginNavs:navs}
                       style={{
