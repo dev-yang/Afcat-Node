@@ -17,7 +17,7 @@ function UserPage() {
   useEffect(() => {
     getUserArticles(userid);
     getUserReplies(userid);
-  },[]);
+  },[userid]);
   let avatatHttp = 'http://39.99.151.246/';
   
   return (
