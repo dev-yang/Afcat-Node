@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { Avatar, Image, Button, Row, Col, Upload, message } from 'antd';
+import { Button, Upload, message } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import { signHttp, publicUrl } from "../../store/action/config";
 import users from '../../component/indexComponent/getCookie';
@@ -21,7 +21,7 @@ function beforeUpload(file) {
 function SettingPage() {
   
   const { user = {} } = useSelector(state => state.guards);
-  const { avatar } = useSelector(state => state.userInfo);
+ // const { avatar } = useSelector(state => state.userInfo);
   const dispatch = useDispatch()
   function customRequest(options) {
     var prevCookie ='';
@@ -35,19 +35,14 @@ function SettingPage() {
         authorization: user.authorization||users.authorization,
       }
     }).then((res) => {
-      //console.log("res");
-      //console.log(res);
       const avatarStr = publicUrl + res.data.results;
-      //console.log("hahahahha");
-      //console.log(avatarStr);
       dispatch({
         type: "USERINFO_UPDATE",
         avatar: avatarStr,
       })
       options.onSuccess(res, options.file);
 
-      prevCookie = document.cookie.slice(0,document.cookie.indexOf('avatarStr'))+'avatarStr='+res.data.results;
-      //console.log( prevCookie )
+      prevCookie = document.cookie.slice(0,document.cookie.indexOf('avatarStr'))+'avatarStr='+avatarStr;
       document.cookie = prevCookie;
 
     })
@@ -60,7 +55,8 @@ function SettingPage() {
         console.log(info.file, info.fileList);
       }
       if (info.file.status === 'done') {
-        message.success(`${info.file.name} file uploaded successfully`);
+        // message.success(`${info.file.name} file uploaded successfully`);
+        message.success(`头像更换成功！`)
       } else if (info.file.status === 'error') {
         message.error(`${info.file.name} file upload failed.`);
       }
@@ -88,7 +84,7 @@ function SettingPage() {
             </Col>
             <Col span={14}> */}
               <Upload {...props} showUploadList={false}>
-                <Button icon={<UploadOutlined />}>上传头像</Button>
+                <Button icon={<UploadOutlined />}>更换头像</Button>
               </Upload>
             {/* </Col>
           </Row> */}

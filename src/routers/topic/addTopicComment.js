@@ -14,7 +14,6 @@ function AddTopicComment(props) {
     const [content, setContent] = useState("");
     const id = data.id;
     const { isLogin , user = {}} = useSelector(state => state.guards);
-    console.log( users )
     const addComment = () => {
         signHttp.post('/reply',
             { 'articleId': id, 'content': content },

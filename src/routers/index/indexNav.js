@@ -1,13 +1,9 @@
 import Nav from "../../component/nav";
-import qs from "qs";
 const indexNavs = [
   {
     to: "/?tab=all",
     title: "全部"
-  }/*, {
-    to: "/?tab=all",
-    title: "精华"
-  }*/, {
+  }, {
     to: "/?tab=3",
     title: "分享"
   }, {
@@ -16,10 +12,7 @@ const indexNavs = [
   },{
     to: "/?tab=2",
     title: "招聘"
-  }/*,{
-    to: "/?tab=all",
-    title: "客户端测试"
-  }*/
+  }
 ];
 function IndexNav(props) {
   const {tab} = props;
