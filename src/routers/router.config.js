@@ -139,17 +139,19 @@ const loginNavs = [
   },{
     to: "/getstart",
     title: "新手入门"
-  },{
-    to: "/api",
-    title: "API"
-  },{
+  },
+  // {
+  //   to: "/api",
+  //   title: "API"
+  // },
+  {
     to: "/about",
     title: "关于"
   },
-  {
-    to: "/setting",
-    title: "设置"
-  },
+  // {
+  //   to: "/setting",
+  //   title: "设置"
+  // },
   {
     to: "/unread",
     title: "未读消息"
