@@ -43,7 +43,7 @@ function LoginPage() {
             })
           // let userid = reply.results.id;
           document.cookie = 'user=isLogin=true,username='+reply.results.username+',id='+reply.results.id
-                    +',avatarStr='+publicUrl+reply.results.avatar+',authorization='+ response.headers.authorization;
+                    +',authorization='+ response.headers.authorization+',avatarStr='+publicUrl+reply.results.avatar;
             
         } else {
           message.error('用户名或密码错误！');
