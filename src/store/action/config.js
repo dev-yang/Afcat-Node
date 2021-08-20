@@ -21,7 +21,8 @@ const signHttp = axios.create({
 const indexNavHttp = axios.create({
   baseURL:"/"
 });
- const publicUrl = "http://39.99.151.246";
-//const publicUrl = "http://10.24.24.64:9999/";
+ //const publicUrl = "http://39.99.151.246";
+const publicUrl = "http://10.24.24.64:9999";
+const avatatHttp = "http://10.24.24.64:9999/public/avatar/";
 
-export {http, signHttp,http1,indexNavHttp,publicUrl}
+export {http, signHttp,http1,indexNavHttp,publicUrl,avatatHttp}
