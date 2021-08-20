@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom";
 import { useLoadUserArticles,useLoadUserReplies,} from "../../store/action/user";
 import UserProfile from "./userProFile";
 import "../../static/css/user.css";
+import { publicUrl } from "../../store/action/config";
 
 function UserPage() {
   const userid = useLocation().pathname.split('/')[2];
@@ -18,7 +19,7 @@ function UserPage() {
     getUserArticles(userid);
     getUserReplies(userid);
   },[userid]);
-  let avatatHttp = 'http://39.99.151.246/';
+  //let avatatHttp = 'http://39.99.151.246/';
   
   return (
     <div className="view">
@@ -31,7 +32,7 @@ function UserPage() {
                   console.log(item)
                 return (
                     <div>
-                    <Avatar src={item.avatar?item.avatar.indexOf('https') !== -1?item.avatar:avatatHttp+item.avatar:''} />
+                    <Avatar src={item.avatar?item.avatar.indexOf('https') !== -1?item.avatar:publicUrl+item.avatar:''} />
                     <span className="user_topic_span">{`${item.replyCount}/${item.viewCount}`}</span>
                     <a href={'/topic/'+item.id} className="user_topic_span">{item.title}</a>
                     {/* <span className="user_topic_span">{item.title}</span> */}
@@ -45,7 +46,7 @@ function UserPage() {
                 {replies?replies.map((item) => {
                 return (
                     <div>
-                    <Avatar src={item.avatar?item.avatar.indexOf('https') !== -1?item.avatar:avatatHttp+item.avatar:''} />
+                    <Avatar src={item.avatar?item.avatar.indexOf('https') !== -1?item.avatar:publicUrl+item.avatar:''} />
                     <span className="user_topic_span">{`${item.replyCount}/${item.viewCount}`}</span>
                     <a href={'/topic/'+item.id} className="user_topic_span">{item.title}</a>
                     {/* <span className="user_topic_span">{item.title}</span> */}

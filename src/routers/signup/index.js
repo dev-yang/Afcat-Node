@@ -3,8 +3,10 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "../../static/css/signup.css"
 import {signHttp} from "../../store/action/config";
 //import {history} from 'history/history';
+import { useHistory } from "react-router-dom";
 
 function SignUpPage() {
+    const { replace } = useHistory();
     const onFinish = (values) => {
         
         if (values.password !== values.repassword) {
@@ -23,10 +25,12 @@ function SignUpPage() {
             const code = reply.code;
             if (code === 0) {
                 Modal.success({
-                    content: '恭喜您，注册成功~',
+                    content: '<a>恭喜您，注册成功,快去登录吧~</a>',
                 });
-                let userid = reply.results.id;
-                //history.push('/');
+
+                //let userid = reply.results.id;
+                setTimeout(replace('/login'),2000)
+                //replace('/login');
                 //此处分发状态，header显示设置以及首页右侧显示用户信息  
             }
           })

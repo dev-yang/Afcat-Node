@@ -3,8 +3,7 @@ import { useEffect } from "react";
 import { useSelector} from "react-redux";
 import { useLoadTopics } from "../../store/action/topics";
 import { Link } from "react-router-dom";
-//import { http1,indexNavHttp } from "../../store/action/config";
-//import qs from "qs";
+import { avatatHttp } from "../../store/action/config";
 function tabNode(tab){
   switch(tab){
       case 1:return '问答';
@@ -31,7 +30,8 @@ function IndexList(props) {
   useEffect(() => {
     getData(page, tab)
   }, [page, tab])
-  let avatatHttp = 'http://39.99.151.246/public/avatar/';
+  //let avatatHttp = 'http://39.99.151.246/public/avatar/';
+   
   return <List
     className="index_list"
     loading={loading}

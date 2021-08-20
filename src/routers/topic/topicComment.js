@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useGetReplys } from "../../store/action/getReplys";
 import { Link,useLocation } from "react-router-dom"; 
+import { avatatHttp } from "../../store/action/config";
  
 
 function TopicComment(props) {
@@ -26,7 +27,8 @@ function TopicComment(props) {
   const  getMoreComment=(count) => {
       getReplys(id,1,count);
    }
-  let avatatHttp = 'http://39.99.151.246/public/avatar/';
+  //let avatatHttp = 'http://39.99.151.246/public/avatar/';
+   
   return ( <Card
         type="inner"
         title="回复"
